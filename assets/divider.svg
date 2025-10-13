@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="32" viewBox="0 0 720 32" shape-rendering="crispEdges">
+  <defs>
+    <symbol id="pb" viewBox="0 0 20 20">
+      <circle cx="10" cy="10" r="9" fill="#fff" stroke="#111" stroke-width="2"/>
+      <path d="M1 10h18" stroke="#111" stroke-width="2"/>
+      <path d="M1 10A9 9 0 0 1 19 10" fill="#e03131"/>
+      <circle cx="10" cy="10" r="3.5" fill="#fff" stroke="#111" stroke-width="2"/>
+    </symbol>
+  </defs>
+  <rect width="720" height="32" fill="transparent"/>
+  <g transform="translate(0,6)">
+    <rect x="0" y="8" width="720" height="2" fill="#2dd4bf"/>
+    <use href="#pb" x="0" />
+    <use href="#pb" x="60" />
+    <use href="#pb" x="120" />
+    <use href="#pb" x="180" />
+    <use href="#pb" x="240" />
+    <use href="#pb" x="300" />
+    <use href="#pb" x="360" />
+    <use href="#pb" x="420" />
+    <use href="#pb" x="480" />
+    <use href="#pb" x="540" />
+    <use href="#pb" x="600" />
+    <use href="#pb" x="660" />
+  </g>
+</svg>
+
+
