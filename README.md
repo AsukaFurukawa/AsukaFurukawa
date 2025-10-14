@@ -91,45 +91,48 @@
 <div align="center">
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  🔴 POKÉDEX v2.0 - PROJECTS DATABASE                       │
-│  ● ● ● ●  [LIGHTS: BLUE YELLOW ORANGE GREEN]               │
-│                                                             │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │  #001 AGRICULTURE_MIC                                   │ │
-│  │  Type: Full-Stack • ML • Data Viz                      │ │
-│  │  Status: Active Development                            │ │
-│  │  [████████████████████████████████████████] 85%        │ │
-│  │                                                         │ │
-│  │  #002 AI-STRUCTURAL-HEALTH                             │ │
-│  │  Type: Computer Vision • ML • Research                 │ │
-│  │  Status: Research Phase                                │ │
-│  │  [████████████████████████████████████████] 60%        │ │
-│  │                                                         │ │
-│  │  #003 BIGDATA-SENTIMENT                                │ │
-│  │  Type: Big Data • Analytics • Visualization           │ │
-│  │  Status: Production Ready                              │ │
-│  │  [████████████████████████████████████████] 95%        │ │
-│  │                                                         │ │
-│  │  #004 OMNIORCHESTRATOR                                 │ │
-│  │  Type: DevOps • Automation • Integration               │ │
-│  │  Status: Active Development                           │ │
-│  │  [████████████████████████████████████████] 75%        │ │
-│  │                                                         │ │
-│  │  #005 MYBLOG                                           │ │
-│  │  Type: Documentation • Blog • Knowledge Base          │ │
-│  │  Status: Regular Updates                              │ │
-│  │  [████████████████████████████████████████] 90%        │ │
-│  │                                                         │ │
-│  │  #006 RESEARCHHUB                                      │ │
-│  │  Type: Research • ML • Data Science                    │ │
-│  │  Status: Active Research                               │ │
-│  │  [████████████████████████████████████████] 70%        │ │
-│  └─────────────────────────────────────────────────────────┘ │
-│                                                             │
-│  [D-PAD] [A] [B] [START] [SELECT]                         │
-│  Speaker: ████ ████ ████                                 │
-└─────────────────────────────────────────────────────────────┘
+    ████████████████████████████████████████████████████████████████
+  ██                                                              ██
+██    🔴 POKÉDEX v2.0 - PROJECTS DATABASE                      ██
+██  ● ● ● ●  [LIGHTS: BLUE YELLOW ORANGE GREEN]                ██
+██                                                              ██
+██  ┌─────────────────────────────────────────────────────────┐  ██
+██  │  #001 AGRICULTURE_MIC                                   │  ██
+██  │  Type: Full-Stack • ML • Data Viz                      │  ██
+██  │  Status: Active Development                            │  ██
+██  │  [████████████████████████████████████████] 85%        │  ██
+██  │                                                         │  ██
+██  │  #002 AI-STRUCTURAL-HEALTH                             │  ██
+██  │  Type: Computer Vision • ML • Research                 │  ██
+██  │  Status: Research Phase                                │  ██
+██  │  [████████████████████████████████████████] 60%        │  ██
+██  │                                                         │  ██
+██  │  #003 BIGDATA-SENTIMENT                                │  ██
+██  │  Type: Big Data • Analytics • Visualization           │  ██
+██  │  Status: Production Ready                              │  ██
+██  │  [████████████████████████████████████████] 95%        │  ██
+██  │                                                         │  ██
+██  │  #004 OMNIORCHESTRATOR                                 │  ██
+██  │  Type: DevOps • Automation • Integration               │  ██
+██  │  Status: Active Development                           │  ██
+██  │  [████████████████████████████████████████] 75%        │  ██
+██  │                                                         │  ██
+██  │  #005 MYBLOG                                           │  ██
+██  │  Type: Documentation • Blog • Knowledge Base          │  ██
+██  │  Status: Regular Updates                              │  ██
+██  │  [████████████████████████████████████████] 90%        │  ██
+██  │                                                         │  ██
+██  │  #006 RESEARCHHUB                                      │  ██
+██  │  Type: Research • ML • Data Science                    │  ██
+██  │  Status: Active Research                               │  ██
+██  │  [████████████████████████████████████████] 70%        │  ██
+██  └─────────────────────────────────────────────────────────┘  ██
+██                                                              ██
+██  [D-PAD] [A] [B] [START] [SELECT]                         ██
+██  Speaker: ████ ████ ████                                 ██
+██                                                              ██
+  ██                                                              ██
+    ████████████████████████████████████████████████████████████████
 ```
 
 </div>
