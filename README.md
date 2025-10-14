@@ -13,11 +13,10 @@
 <p align="center">
   <a href="#trainer-card">Trainer Card</a> •
   <a href="#quest-log">Quest Log</a> •
-  <a href="#pokedex-projects">Pokédex (Projects)</a> •
+  <a href="#pokedex-projects">Projects</a> •
   <a href="#skills">Skills</a> •
   <a href="#stats">Stats</a> •
   <a href="#achievements">Achievements</a> •
-  <a href="#activity">Activity</a> •
   <a href="#contact">Contact</a>
 </p>
 
@@ -162,49 +161,27 @@
 
 <a id="stats"></a>
 
-### Stats
+### Stats & Activity
 
 <div align="center">
-
   <img height="160" src="https://github-readme-stats.vercel.app/api?username=AsukaFurukawa&show_icons=true&theme=tokyonight&bg_color=000000&title_color=00e6e6&icon_color=ff3e3e&text_color=c9d1d9" />
   <img height="160" src="https://streak-stats.demolab.com?user=AsukaFurukawa&theme=tokyonight&background=000000&ring=00e6e6&fire=ff3e3e&currStreakNum=c9d1d9" />
-  <br/>
-  <img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AsukaFurukawa&layout=compact&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9" />
-
 </div>
-
-### GitHub Metrics
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=AsukaFurukawa&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&hide_border=true&layout=compact" />
+  <img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AsukaFurukawa&layout=compact&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9" />
 </div>
 
-<details>
-  <summary>📊 Detailed Metrics</summary>
-  <br/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AsukaFurukawa&theme=tokyonight" />
-  <br/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AsukaFurukawa&theme=tokyonight" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AsukaFurukawa&theme=tokyonight" />
-  <br/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=AsukaFurukawa&theme=tokyonight" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=AsukaFurukawa&theme=tokyonight" />
-</details>
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AsukaFurukawa&theme=tokyo-night&hide_border=true&bg_color=000000&color=70A4FC&line=00e6e6&point=ff3e3e&radius=8" />
+</div>
 
 <a id="achievements"></a>
 
 ### Achievements
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=AsukaFurukawa&theme=onestar&no-frame=true&no-bg=true&row=1&column=6&margin-w=10&margin-h=10" />
-</div>
-
-<a id="activity"></a>
-
-### Activity Graph
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AsukaFurukawa&theme=tokyo-night&hide_border=true&bg_color=000000&color=70A4FC&line=00e6e6&point=ff3e3e&radius=8" />
+  <img src="https://github-profile-trophy.vercel.app/?username=AsukaFurukawa&theme=tokyonight&no-frame=true&no-bg=true&row=2&column=3&margin-w=15&margin-h=15" />
 </div>
 
 ### Contribution Snake
