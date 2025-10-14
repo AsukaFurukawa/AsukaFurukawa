@@ -54,7 +54,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log-simple.svg" alt="Quest Log" width="600">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.svg" alt="Quest Log" width="600">
 
 </div>
 
