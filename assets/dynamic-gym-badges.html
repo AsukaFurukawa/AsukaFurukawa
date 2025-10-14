@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Gym Badge Collection</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge-item {
+            text-align: center;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border: 2px solid #444;
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 120px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-item.earned {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .badge-item.locked {
+            border-color: #666;
+            opacity: 0.7;
+        }
+        
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        
+        .badge-title {
+            font-size: 10px;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        
+        .badge-description {
+            font-size: 8px;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            color: #fff;
+            font-size: 8px;
+            font-family: monospace;
+            margin: 5px 0;
+        }
+        
+        .status {
+            font-size: 7px;
+            padding: 3px 8px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .status.earned {
+            background: #32cd32;
+            color: #000;
+        }
+        
+        .status.locked {
+            background: #666;
+            color: #ccc;
+        }
+        
+        .loading {
+            text-align: center;
+            font-size: 12px;
+            color: #ffd700;
+            margin: 50px 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 16px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .summary {
+            background: #ffd700;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 10px;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏆 DYNAMIC GYM BADGE COLLECTION 🏆</h1>
+        <p>Real-time tracking of your coding achievements!</p>
+    </div>
+    
+    <div id="loading" class="loading">
+        🔄 Loading your progress...
+    </div>
+    
+    <div id="badges" class="badge-container" style="display: none;">
+        <!-- Badges will be populated here -->
+    </div>
+
+    <div id="summary" class="summary" style="display: none;">
+        <!-- Summary will be populated here -->
+    </div>
+
+    <script>
+        // GitHub API configuration
+        const GITHUB_USERNAME = 'AsukaFurukawa';
+        
+        // Badge requirements (achievable!)
+        const BADGE_REQUIREMENTS = {
+            fire: { 
+                name: 'Fire Badge', 
+                description: 'Hot Streak', 
+                requirement: 3, 
+                type: 'streak',
+                icon: 'fire-badge.svg',
+                color: '#ff6b35'
+            },
+            water: { 
+                name: 'Water Badge', 
+                description: 'Deep Diver', 
+                requirement: 5, 
+                type: 'repos',
+                icon: 'water-badge.svg',
+                color: '#00bfff'
+            },
+            electric: { 
+                name: 'Electric Badge', 
+                description: 'Power User', 
+                requirement: 50, 
+                type: 'commits',
+                icon: 'electric-badge.svg',
+                color: '#ffd700'
+            },
+            grass: { 
+                name: 'Grass Badge', 
+                description: 'Code Gardener', 
+                requirement: 3, 
+                type: 'languages',
+                icon: 'grass-badge.svg',
+                color: '#32cd32'
+            }
+        };
+        
+        async function fetchGitHubData() {
+            try {
+                // Fetch user data
+                const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+                const userData = await userResponse.json();
+                
+                // Fetch repositories
+                const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`);
+                const repos = await reposResponse.json();
+                
+                // Fetch contribution data
+                const contributionsResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=100`);
+                const events = await contributionsResponse.json();
+                
+                return { userData, repos, events };
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+                return null;
+            }
+        }
+        
+        function calculateProgress(githubData) {
+            if (!githubData) return BADGE_REQUIREMENTS;
+            
+            const { userData, repos, events } = githubData;
+            
+            // Calculate current streak (simplified)
+            let currentStreak = 0;
+            const today = new Date();
+            const oneDayAgo = new Date(today.getTime() - 24 * 60 * 60 * 1000);
+            
+            // Count recent commits for streak
+            const recentCommits = events.filter(event => 
+                event.type === 'PushEvent' && 
+                new Date(event.created_at) > oneDayAgo
+            );
+            currentStreak = Math.min(recentCommits.length, 30); // Cap at 30 for demo
+            
+            // Count unique languages
+            const languages = new Set();
+            repos.forEach(repo => {
+                if (repo.language) languages.add(repo.language);
+            });
+            
+            // Estimate total commits (simplified)
+            const totalCommits = Math.min(userData.public_repos * 10, 200); // Estimate
+            
+            return {
+                fire: { ...BADGE_REQUIREMENTS.fire, current: currentStreak },
+                water: { ...BADGE_REQUIREMENTS.water, current: repos.length },
+                electric: { ...BADGE_REQUIREMENTS.electric, current: totalCommits },
+                grass: { ...BADGE_REQUIREMENTS.grass, current: languages.size }
+            };
+        }
+        
+        function createBadgeHTML(badgeType, badgeData) {
+            const isEarned = badgeData.current >= badgeData.requirement;
+            const progressPercent = Math.min((badgeData.current / badgeData.requirement) * 100, 100);
+            
+            return `
+                <div class="badge-item ${isEarned ? 'earned' : 'locked'}">
+                    ${isEarned ? '<div class="sparkle" style="top: 10px; right: 10px;"></div>' : ''}
+                    <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/${badgeData.icon}" 
+                         alt="${badgeData.name}" class="badge-icon">
+                    <div class="badge-title">${badgeData.name}</div>
+                    <div class="badge-description">${badgeData.description}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progressPercent}%; background: ${badgeData.color};"></div>
+                    </div>
+                    <div class="progress-text">${badgeData.current}/${badgeData.requirement}</div>
+                    <div class="status ${isEarned ? 'earned' : 'locked'}">
+                        ${isEarned ? '✅ EARNED' : '🔒 LOCKED'}
+                    </div>
+                </div>
+            `;
+        }
+        
+        async function updateBadges() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('badges').style.display = 'none';
+            document.getElementById('summary').style.display = 'none';
+            
+            const githubData = await fetchGitHubData();
+            const progress = calculateProgress(githubData);
+            
+            const badgesHTML = Object.entries(progress).map(([type, data]) => 
+                createBadgeHTML(type, data)
+            ).join('');
+            
+            document.getElementById('badges').innerHTML = badgesHTML;
+            
+            // Calculate summary
+            const earnedCount = Object.values(progress).filter(badge => badge.current >= badge.requirement).length;
+            const totalCount = Object.keys(progress).length;
+            
+            document.getElementById('summary').innerHTML = `🏆 BADGES EARNED: ${earnedCount}/${totalCount} 🏆`;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('badges').style.display = 'flex';
+            document.getElementById('summary').style.display = 'block';
+        }
+        
+        // Initial load and periodic updates
+        updateBadges();
+        setInterval(updateBadges, 300000); // Update every 5 minutes
+    </script>
+</body>
+</html>
