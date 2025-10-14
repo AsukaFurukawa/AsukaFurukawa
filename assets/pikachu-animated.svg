@@ -16,20 +16,24 @@
   
   <!-- Pikachu Body -->
   <ellipse cx="32" cy="40" rx="18" ry="16" class="pikachu-body">
-    <animate attributeName="ry" values="16;14;16" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="16;12;16" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="40;38;40" dur="1s" repeatCount="indefinite"/>
   </ellipse>
   
   <!-- Pikachu Head -->
   <circle cx="32" cy="24" r="16" class="pikachu-body">
-    <animate attributeName="cy" values="24;22;24" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="24;20;24" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="16;18;16" dur="1s" repeatCount="indefinite"/>
   </circle>
   
   <!-- Ears -->
   <ellipse cx="24" cy="12" rx="4" ry="12" class="pikachu-ear" transform="rotate(-20 24 12)">
-    <animate attributeName="cy" values="12;10;12" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="12;8;12" dur="0.8s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="-20 24 12;-25 24 12;-20 24 12" dur="0.8s" repeatCount="indefinite"/>
   </ellipse>
   <ellipse cx="40" cy="12" rx="4" ry="12" class="pikachu-ear" transform="rotate(20 40 12)">
-    <animate attributeName="cy" values="12;10;12" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="12;8;12" dur="0.8s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="20 40 12;25 40 12;20 40 12" dur="0.8s" repeatCount="indefinite"/>
   </ellipse>
   
   <!-- Ear Tips -->
@@ -42,10 +46,12 @@
   
   <!-- Eyes -->
   <circle cx="28" cy="20" r="3" class="pikachu-eye">
-    <animate attributeName="cy" values="20;18;20" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="20;16;20" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="3;2;3" dur="0.6s" repeatCount="indefinite"/>
   </circle>
   <circle cx="36" cy="20" r="3" class="pikachu-eye">
-    <animate attributeName="cy" values="20;18;20" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="20;16;20" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="3;2;3" dur="0.6s" repeatCount="indefinite"/>
   </circle>
   
   <!-- Eye highlights -->

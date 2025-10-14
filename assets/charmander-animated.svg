@@ -14,12 +14,14 @@
   
   <!-- Charmander Body -->
   <ellipse cx="32" cy="40" rx="16" ry="18" class="charmander-body">
-    <animate attributeName="ry" values="18;16;18" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="18;14;18" dur="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="40;37;40" dur="1.2s" repeatCount="indefinite"/>
   </ellipse>
   
   <!-- Head -->
   <circle cx="32" cy="24" r="14" class="charmander-body">
-    <animate attributeName="cy" values="24;22;24" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="24;20;24" dur="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="14;16;14" dur="1.2s" repeatCount="indefinite"/>
   </circle>
   
   <!-- Belly -->
@@ -60,10 +62,14 @@
   
   <!-- Flame -->
   <ellipse cx="52" cy="32" rx="4" ry="8" class="charmander-flame" transform="rotate(20 52 32)">
-    <animate attributeName="ry" values="8;10;8" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="8;12;8" dur="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="4;6;4" dur="0.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="20 52 32;25 52 32;15 52 32;20 52 32" dur="0.5s" repeatCount="indefinite"/>
   </ellipse>
   <ellipse cx="52" cy="30" rx="2" ry="6" class="charmander-flame-inner" transform="rotate(20 52 30)">
-    <animate attributeName="ry" values="6;8;6" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="6;10;6" dur="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="2;4;2" dur="0.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="20 52 30;25 52 30;15 52 30;20 52 30" dur="0.5s" repeatCount="indefinite"/>
   </ellipse>
   
   <!-- Flame sparks -->
