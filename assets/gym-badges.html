@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Badge Collection</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .badge-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .badge-card {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border: 3px solid #444;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-card.earned {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .badge-card.locked {
+            border-color: #666;
+            opacity: 0.7;
+        }
+        
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .badge-title {
+            font-size: 12px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .badge-description {
+            font-size: 8px;
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            font-size: 8px;
+            color: #fff;
+        }
+        
+        .status {
+            font-size: 8px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .status.earned {
+            background: #32cd32;
+            color: #000;
+        }
+        
+        .status.locked {
+            background: #666;
+            color: #ccc;
+        }
+        
+        .loading {
+            text-align: center;
+            font-size: 12px;
+            color: #ffd700;
+            margin: 50px 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 16px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 8px;
+            color: #ccc;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏆 GYM BADGE COLLECTION 🏆</h1>
+        <p>Earn badges by completing coding challenges!</p>
+    </div>
+    
+    <div id="loading" class="loading">
+        🔄 Loading your progress...
+    </div>
+    
+    <div id="badges" class="badge-container" style="display: none;">
+        <!-- Badges will be populated here -->
+    </div>
+
+    <script>
+        // GitHub API configuration
+        const GITHUB_USERNAME = 'AsukaFurukawa';
+        const GITHUB_TOKEN = 'YOUR_GITHUB_TOKEN'; // Replace with your token
+        
+        // Badge requirements (much easier!)
+        const BADGE_REQUIREMENTS = {
+            fire: { name: 'Fire Badge', description: 'Hot Streak', requirement: 3, current: 0, type: 'streak' },
+            water: { name: 'Water Badge', description: 'Deep Diver', requirement: 5, current: 0, type: 'repos' },
+            electric: { name: 'Electric Badge', description: 'Power User', requirement: 50, current: 0, type: 'commits' },
+            grass: { name: 'Grass Badge', description: 'Code Gardener', requirement: 3, current: 0, type: 'languages' }
+        };
+        
+        async function fetchGitHubData() {
+            try {
+                const headers = { 'Authorization': `token ${GITHUB_TOKEN}` };
+                
+                // Fetch user data
+                const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, { headers });
+                const userData = await userResponse.json();
+                
+                // Fetch repositories
+                const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`, { headers });
+                const repos = await reposResponse.json();
+                
+                // Fetch contribution data (simplified)
+                const contributionsResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=100`, { headers });
+                const events = await contributionsResponse.json();
+                
+                return { userData, repos, events };
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+                return null;
+            }
+        }
+        
+        function calculateProgress(githubData) {
+            if (!githubData) return BADGE_REQUIREMENTS;
+            
+            const { userData, repos, events } = githubData;
+            
+            // Calculate current streak (simplified)
+            let currentStreak = 0;
+            const today = new Date();
+            const oneDayAgo = new Date(today.getTime() - 24 * 60 * 60 * 1000);
+            
+            // Count recent commits for streak
+            const recentCommits = events.filter(event => 
+                event.type === 'PushEvent' && 
+                new Date(event.created_at) > oneDayAgo
+            );
+            currentStreak = Math.min(recentCommits.length, 30); // Cap at 30 for demo
+            
+            // Count unique languages
+            const languages = new Set();
+            repos.forEach(repo => {
+                if (repo.language) languages.add(repo.language);
+            });
+            
+            // Estimate total commits (simplified)
+            const totalCommits = Math.min(userData.public_repos * 10, 200); // Estimate
+            
+            return {
+                fire: { ...BADGE_REQUIREMENTS.fire, current: currentStreak },
+                water: { ...BADGE_REQUIREMENTS.water, current: repos.length },
+                electric: { ...BADGE_REQUIREMENTS.electric, current: totalCommits },
+                grass: { ...BADGE_REQUIREMENTS.grass, current: languages.size }
+            };
+        }
+        
+        function createBadgeCard(badgeType, badgeData) {
+            const isEarned = badgeData.current >= badgeData.requirement;
+            const progressPercent = Math.min((badgeData.current / badgeData.requirement) * 100, 100);
+            
+            return `
+                <div class="badge-card ${isEarned ? 'earned' : 'locked'}">
+                    ${isEarned ? '<div class="sparkle" style="top: 10px; right: 10px;"></div>' : ''}
+                    <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/${badgeType}-badge.svg" 
+                         alt="${badgeData.name}" class="badge-icon">
+                    <div class="badge-title">${badgeData.name}</div>
+                    <div class="badge-description">${badgeData.description}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                    </div>
+                    <div class="progress-text">${badgeData.current}/${badgeData.requirement}</div>
+                    <div class="status ${isEarned ? 'earned' : 'locked'}">
+                        ${isEarned ? '✅ EARNED' : '🔒 LOCKED'}
+                    </div>
+                </div>
+            `;
+        }
+        
+        async function updateBadges() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('badges').style.display = 'none';
+            
+            const githubData = await fetchGitHubData();
+            const progress = calculateProgress(githubData);
+            
+            const badgesHTML = Object.entries(progress).map(([type, data]) => 
+                createBadgeCard(type, data)
+            ).join('');
+            
+            document.getElementById('badges').innerHTML = badgesHTML;
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('badges').style.display = 'grid';
+        }
+        
+        // Initial load
+        updateBadges();
+        
+        // Update every 5 minutes
+        setInterval(updateBadges, 300000);
+    </script>
+</body>
+</html>

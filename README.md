@@ -12,9 +12,10 @@
 
 <p align="center">
   <a href="#trainer-card">Trainer Card</a> •
+  <a href="#skills">Skills</a> •
+  <a href="#gym-badges">Gym Badges</a> •
   <a href="#quest-log">Quest Log</a> •
   <a href="#pokedex-projects">Projects</a> •
-  <a href="#skills">Skills</a> •
   <a href="#stats">Stats</a> •
   <a href="#achievements">Achievements</a> •
   <a href="#contact">Contact</a>
@@ -146,6 +147,84 @@
   <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" />
   <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" />
   <img src="https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=mocha&logoColor=white" />
+</div>
+
+<a id="gym-badges"></a>
+
+### 🏆 Gym Badge Collection
+
+<div align="center">
+
+<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/gym-badges.html" target="_blank">
+  <img src="https://img.shields.io/badge/🏆_GYM_BADGES-REAL_TRACKING-red?style=for-the-badge&logo=github&logoColor=white" alt="Gym Badges" />
+</a>
+
+<br/><br/>
+
+<div style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d); border: 4px solid #ffd700; border-radius: 25px; padding: 20px; max-width: 800px; margin: 0 auto; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);">
+
+<div style="text-align: center; font-size: 18px; color: #ffd700; margin-bottom: 20px; font-weight: bold; font-family: monospace;">
+🏆 GYM BADGE COLLECTION 🏆
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 20px 0;">
+
+<div style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); border: 3px solid #ff6b35; border-radius: 15px; padding: 15px; text-align: center;">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/fire-badge.svg" alt="Fire Badge" width="60" style="margin-bottom: 10px;">
+<div style="color: #ffd700; font-size: 10px; font-family: monospace; margin-bottom: 8px;">🔥 FIRE BADGE</div>
+<div style="color: #ccc; font-size: 8px; margin-bottom: 10px;">Hot Streak - 3 days</div>
+<div style="background: #333; height: 6px; border-radius: 3px; margin: 8px 0; overflow: hidden;">
+<div style="height: 100%; width: 75%; background: linear-gradient(90deg, #ff6b35, #ffd700); border-radius: 3px;"></div>
+</div>
+<div style="color: #fff; font-size: 8px; font-family: monospace;">2/3 days</div>
+<div style="background: #666; color: #ccc; padding: 3px 8px; border-radius: 8px; font-size: 7px; margin-top: 8px;">🔒 LOCKED</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); border: 3px solid #00bfff; border-radius: 15px; padding: 15px; text-align: center;">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/water-badge.svg" alt="Water Badge" width="60" style="margin-bottom: 10px;">
+<div style="color: #00bfff; font-size: 10px; font-family: monospace; margin-bottom: 8px;">💧 WATER BADGE</div>
+<div style="color: #ccc; font-size: 8px; margin-bottom: 10px;">Deep Diver - 5 repos</div>
+<div style="background: #333; height: 6px; border-radius: 3px; margin: 8px 0; overflow: hidden;">
+<div style="height: 100%; width: 100%; background: linear-gradient(90deg, #00bfff, #87ceeb); border-radius: 3px;"></div>
+</div>
+<div style="color: #fff; font-size: 8px; font-family: monospace;">12/5 repos</div>
+<div style="background: #32cd32; color: #000; padding: 3px 8px; border-radius: 8px; font-size: 7px; margin-top: 8px;">✅ EARNED</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); border: 3px solid #ffd700; border-radius: 15px; padding: 15px; text-align: center;">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/electric-badge.svg" alt="Electric Badge" width="60" style="margin-bottom: 10px;">
+<div style="color: #ffd700; font-size: 10px; font-family: monospace; margin-bottom: 8px;">⚡ ELECTRIC BADGE</div>
+<div style="color: #ccc; font-size: 8px; margin-bottom: 10px;">Power User - 50 commits</div>
+<div style="background: #333; height: 6px; border-radius: 3px; margin: 8px 0; overflow: hidden;">
+<div style="height: 100%; width: 100%; background: linear-gradient(90deg, #ffd700, #ffaa00); border-radius: 3px;"></div>
+</div>
+<div style="color: #fff; font-size: 8px; font-family: monospace;">87/50 commits</div>
+<div style="background: #32cd32; color: #000; padding: 3px 8px; border-radius: 8px; font-size: 7px; margin-top: 8px;">✅ EARNED</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); border: 3px solid #32cd32; border-radius: 15px; padding: 15px; text-align: center;">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/grass-badge.svg" alt="Grass Badge" width="60" style="margin-bottom: 10px;">
+<div style="color: #32cd32; font-size: 10px; font-family: monospace; margin-bottom: 8px;">🌿 GRASS BADGE</div>
+<div style="color: #ccc; font-size: 8px; margin-bottom: 10px;">Code Gardener - 3 languages</div>
+<div style="background: #333; height: 6px; border-radius: 3px; margin: 8px 0; overflow: hidden;">
+<div style="height: 100%; width: 100%; background: linear-gradient(90deg, #32cd32, #90ee90); border-radius: 3px;"></div>
+</div>
+<div style="color: #fff; font-size: 8px; font-family: monospace;">7/3 languages</div>
+<div style="background: #32cd32; color: #000; padding: 3px 8px; border-radius: 8px; font-size: 7px; margin-top: 8px;">✅ EARNED</div>
+</div>
+
+</div>
+
+<div style="background: #ffd700; color: #1a1a1a; padding: 10px 20px; border-radius: 15px; text-align: center; font-weight: bold; margin: 20px 0; font-family: monospace; font-size: 10px;">
+🏆 BADGES EARNED: 3/4 🏆
+</div>
+
+<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 8px; font-family: monospace;">
+Press A to view detailed progress • Press B to see requirements
+</div>
+
+</div>
+
 </div>
 
 <a id="quest-log"></a>
