@@ -90,49 +90,17 @@
 
 <div align="center">
 
-#### 🌱 **#001 Agriculture_MIC**
-*Intelligent crop insights, alerts, and analytics*
-- **Type**: Full-Stack • ML • Data Viz
-- **Tech**: TypeScript, Python, React, PostgreSQL
-- **Status**: Active Development
-- **Repo**: [`AsukaFurukawa/Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC)
-
-#### 🏗️ **#002 AI-Driven Structural Health**
-*Vision models for damage detection using drone imagery*
-- **Type**: Computer Vision • ML • Research
-- **Tech**: Python, PyTorch, OpenCV, TensorFlow
-- **Status**: Research Phase
-- **Repo**: [`AI-Driven-Structural-Health-Monitoring`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery)
-
-#### 📊 **#003 BigData-Sentiment-Analysis**
-*Scalable sentiment pipelines and dashboards*
-- **Type**: Big Data • Analytics • Visualization
-- **Tech**: Python, Spark, Kafka, Hadoop
-- **Status**: Production Ready
-- **Repo**: [`AsukaFurukawa/BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis)
-
-#### ⚙️ **#004 OmniOrchestrator**
-*Automations and multi-tool workflows*
-- **Type**: DevOps • Automation • Integration
-- **Tech**: Node.js, Docker, Kubernetes, GitHub Actions
-- **Status**: Active Development
-- **Repo**: [`AsukaFurukawa/OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator)
-
-#### 📝 **#005 MyBlog**
-*Typed developer blog and notes*
-- **Type**: Documentation • Blog • Knowledge Base
-- **Tech**: TypeScript, Next.js, MDX, Tailwind
-- **Status**: Regular Updates
-- **Repo**: [`AsukaFurukawa/MyBlog`](https://github.com/AsukaFurukawa/MyBlog)
-
-#### 🔬 **#006 ResearchHub**
-*Experiments and notebooks*
-- **Type**: Research • ML • Data Science
-- **Tech**: Python, Jupyter, Pandas, NumPy
-- **Status**: Active Research
-- **Repo**: [`AsukaFurukawa/ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub)
+<iframe src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokedex.html" width="420" height="640" frameborder="0" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></iframe>
 
 </div>
+
+#### 📱 **Project Links**
+- **#001**: [`Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC) - Intelligent crop insights
+- **#002**: [`AI-Driven-Structural-Health`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery) - Vision models for damage detection  
+- **#003**: [`BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis) - Scalable sentiment pipelines
+- **#004**: [`OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator) - Automations and workflows
+- **#005**: [`MyBlog`](https://github.com/AsukaFurukawa/MyBlog) - Developer blog and notes
+- **#006**: [`ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub) - Experiments and notebooks
 
 <p align="center">
   <a href="https://github.com/AsukaFurukawa?tab=repositories">
