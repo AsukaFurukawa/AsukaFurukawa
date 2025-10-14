@@ -1,10 +1,10 @@
 <div align="center">
 
-  <img src="assets/banner.svg" alt="Pixel Pokémon Banner" width="100%">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/banner.svg" alt="Pixel Pokémon Banner" width="100%">
 
   <br/>
   
-  <img src="assets/divider.svg" alt="Pokéball Divider" width="680">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/divider.svg" alt="Pokéball Divider" width="680">
 
   <h3>Press START ➜ Level up code, catch new skills, ship rare drops</h3>
 
@@ -37,7 +37,7 @@
 ### Trainer Card
 
 <div align="center">
-  <img src="assets/trainer-card.svg" alt="Trainer Card" width="720">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer-card.svg" alt="Trainer Card" width="720">
 </div>
 
 <a id="quest-log"></a>
@@ -45,18 +45,34 @@
 ### Quest Log
 
 <div align="center">
-  <img src="assets/quest-log.svg" alt="Quest Log" width="720">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.svg" alt="Quest Log" width="720">
 </div>
 
 <a id="pokedex-projects"></a>
 
 ### Pokédex (Projects)
 
-<p align="center">✨ Auto-updated: showing top repos by stars & activity</p>
+<p align="center">✨ Featured repositories</p>
 
 <div align="center">
-  <a href="https://github.com/AsukaFurukawa?tab=repositories&sort=stargazers">
-    <img src="https://github-readme-stats.vercel.app/api/top-repos?username=AsukaFurukawa&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true&layout=compact&limit=6" />
+  <a href="https://github.com/AsukaFurukawa/Agriculture_MIC">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=Agriculture_MIC&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  </a>
+  <a href="https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  </a>
+  <a href="https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=BigData-Sentiment-Analysis&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  </a>
+  <br/>
+  <a href="https://github.com/AsukaFurukawa/OmniOrchestrator">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=OmniOrchestrator&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  </a>
+  <a href="https://github.com/AsukaFurukawa/MyBlog">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=MyBlog&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  </a>
+  <a href="https://github.com/AsukaFurukawa/ResearchHub">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=ResearchHub&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
   </a>
 </div>
 
@@ -201,7 +217,7 @@
 - **Press START**: Star a project and say hi!
 
 <div align="center">
-  <img src="assets/divider.svg" alt="Pokéball Divider" width="680">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/divider.svg" alt="Pokéball Divider" width="680">
   <br />
   <sub>Made with ❤️ + 16‑bit vibes. Art assets are original and free to use with attribution.</sub>
 </div>
