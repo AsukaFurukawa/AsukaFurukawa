@@ -53,47 +53,19 @@
 
 ### Pokédex (Projects)
 
+<p align="center">✨ Auto-updated: showing top repos by stars & activity</p>
+
 <div align="center">
-
-  <a href="https://github.com/AsukaFurukawa/Agriculture_MIC">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=Agriculture_MIC&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
+  <a href="https://github.com/AsukaFurukawa?tab=repositories&sort=stargazers">
+    <img src="https://github-readme-stats.vercel.app/api/top-repos?username=AsukaFurukawa&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true&layout=compact&limit=6" />
   </a>
-  <a href="https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=BigData-Sentiment-Analysis&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <br/>
-  <a href="https://github.com/AsukaFurukawa/OmniOrchestrator">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=OmniOrchestrator&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/MyBlog">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=MyBlog&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/ResearchHub">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=ResearchHub&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-
 </div>
 
-<details>
-  <summary>Project links</summary>
-
-  - **Agriculture_MIC**: Intelligent crop insights, alerts, and analytics
-    - Repo: [`AsukaFurukawa/Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC)
-  - **AI-Driven Structural Health (Drone Imagery)**: Vision models for damage detection
-    - Repo: [`AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery)
-  - **BigData-Sentiment-Analysis**: Scalable sentiment pipelines and dashboards
-    - Repo: [`AsukaFurukawa/BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis)
-  - **OmniOrchestrator**: Automations and multi-tool workflows
-    - Repo: [`AsukaFurukawa/OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator)
-  - **MyBlog**: Typed developer blog and notes
-    - Repo: [`AsukaFurukawa/MyBlog`](https://github.com/AsukaFurukawa/MyBlog)
-  - **ResearchHub**: Experiments and notebooks
-    - Repo: [`AsukaFurukawa/ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub)
-
-</details>
+<p align="center">
+  <a href="https://github.com/AsukaFurukawa?tab=repositories">
+    <img src="https://img.shields.io/badge/View_All_27_Repos-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
 <a id="skills"></a>
 
