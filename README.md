@@ -194,8 +194,8 @@
 
 <div align="center">
 
-<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log-real.html" target="_blank">
-  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-REAL_TRACKING-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
+<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-quest-log.html" target="_blank">
+  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-POKÉMON_EDITION-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
 </a>
 
 <br/><br/>
@@ -209,7 +209,7 @@
 <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 3px solid #374151; border-radius: 8px; padding: 20px; margin: 10px 0;">
 
 <div style="text-align: center; font-size: 18px; color: #60a5fa; margin-bottom: 20px; font-weight: bold; font-family: monospace;">
-🎮 QUEST LOG v2.0
+🎮 QUEST LOG v3.0 - POKÉMON EDITION 🎮
 </div>
 
 <div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">

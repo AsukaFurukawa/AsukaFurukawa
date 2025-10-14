@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Quest Log</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .quest-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border: 4px solid #1f2937;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .quest-header {
+            text-align: center;
+            font-size: 18px;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        
+        .quest-item {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 3px solid #374151;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quest-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ff6b35, #32cd32, #00bfff);
+            animation: questGlow 3s infinite;
+        }
+        
+        @keyframes questGlow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .quest-title {
+            color: #fbbf24;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quest-description {
+            color: #a78bfa;
+            font-size: 12px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+        
+        .quest-progress {
+            background: #374151;
+            height: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .quest-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quest-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .quest-percentage {
+            text-align: right;
+            color: white;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .quest-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .quest-type {
+            background: #374151;
+            color: #60a5fa;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 8px;
+            font-family: monospace;
+        }
+        
+        .quest-level {
+            background: #ffd700;
+            color: #1a1a1a;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 8px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        
+        .legendary-badge {
+            background: #fbbf24;
+            color: #1f2937;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 12px;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            font-size: 12px;
+            color: #ffd700;
+            margin: 50px 0;
+        }
+        
+        .pokemon-sprites {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .pokemon-sprite {
+            width: 40px;
+            height: 40px;
+            animation: pokemonFloat 2s infinite;
+        }
+        
+        .pokemon-sprite:nth-child(2) { animation-delay: 0.5s; }
+        .pokemon-sprite:nth-child(3) { animation-delay: 1s; }
+        .pokemon-sprite:nth-child(4) { animation-delay: 1.5s; }
+        
+        @keyframes pokemonFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .quest-pokemon {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 30px;
+            height: 30px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="quest-container">
+        <div class="quest-header">
+            🎮 QUEST LOG v3.0 - POKÉMON EDITION 🎮
+        </div>
+        
+        <div class="pokemon-sprites">
+            <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pikachu-animated.svg" alt="Pikachu" class="pokemon-sprite">
+            <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/charmander-animated.svg" alt="Charmander" class="pokemon-sprite">
+            <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/lucario-animated.svg" alt="Lucario" class="pokemon-sprite">
+            <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/greninja-animated.svg" alt="Greninja" class="pokemon-sprite">
+        </div>
+        
+        <div id="loading" class="loading">
+            🔄 Loading your Pokémon quests...
+        </div>
+        
+        <div id="quests" style="display: none;">
+            <!-- Quests will be populated here -->
+        </div>
+        
+        <div id="legendary-badge" class="legendary-badge" style="display: none;">
+            🏆 Legendary Quest Badge: <span id="badge-count">0</span>/12
+        </div>
+    </div>
+
+    <script>
+        // GitHub API configuration
+        const GITHUB_USERNAME = 'AsukaFurukawa';
+        
+        // Quest types and their corresponding Pokémon
+        const QUEST_TYPES = {
+            'ml': { pokemon: 'pikachu-animated.svg', color: '#ffd700', name: 'Electric Quest' },
+            'ai': { pokemon: 'lucario-animated.svg', color: '#00bfff', name: 'Aura Quest' },
+            'web': { pokemon: 'charmander-animated.svg', color: '#ff6b35', name: 'Fire Quest' },
+            'data': { pokemon: 'greninja-animated.svg', color: '#32cd32', name: 'Water Quest' },
+            'mobile': { pokemon: 'pikachu-animated.svg', color: '#ffd700', name: 'Electric Quest' },
+            'devops': { pokemon: 'lucario-animated.svg', color: '#00bfff', name: 'Aura Quest' }
+        };
+        
+        async function fetchGitHubData() {
+            try {
+                // Fetch repositories
+                const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
+                const repos = await reposResponse.json();
+                
+                // Fetch recent commits
+                const commitsResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=50`);
+                const events = await commitsResponse.json();
+                
+                return { repos, events };
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+                return null;
+            }
+        }
+        
+        function categorizeQuest(repo) {
+            const name = repo.name.toLowerCase();
+            const description = (repo.description || '').toLowerCase();
+            const language = (repo.language || '').toLowerCase();
+            
+            // ML/AI projects
+            if (name.includes('ml') || name.includes('ai') || name.includes('machine') || 
+                name.includes('learning') || name.includes('tensorflow') || name.includes('pytorch') ||
+                description.includes('machine learning') || description.includes('ai') ||
+                language === 'python' && (description.includes('ml') || description.includes('ai'))) {
+                return 'ml';
+            }
+            
+            // Web development
+            if (name.includes('web') || name.includes('frontend') || name.includes('backend') ||
+                name.includes('react') || name.includes('next') || name.includes('node') ||
+                language === 'javascript' || language === 'typescript') {
+                return 'web';
+            }
+            
+            // Data science
+            if (name.includes('data') || name.includes('analytics') || name.includes('visualization') ||
+                description.includes('data science') || description.includes('analytics')) {
+                return 'data';
+            }
+            
+            // Mobile development
+            if (name.includes('mobile') || name.includes('app') || name.includes('ios') || name.includes('android')) {
+                return 'mobile';
+            }
+            
+            // DevOps
+            if (name.includes('devops') || name.includes('docker') || name.includes('kubernetes') ||
+                name.includes('ci') || name.includes('cd') || name.includes('deploy')) {
+                return 'devops';
+            }
+            
+            // Default to AI/ML
+            return 'ai';
+        }
+        
+        function calculateQuestProgress(repo) {
+            // Calculate progress based on repository activity
+            const now = new Date();
+            const created = new Date(repo.created_at);
+            const updated = new Date(repo.updated_at);
+            
+            // Base progress from repository age and activity
+            let progress = 20; // Base progress
+            
+            // Add progress based on recent activity
+            const daysSinceUpdate = (now - updated) / (1000 * 60 * 60 * 24);
+            if (daysSinceUpdate < 7) progress += 30; // Very recent
+            else if (daysSinceUpdate < 30) progress += 20; // Recent
+            else if (daysSinceUpdate < 90) progress += 10; // Somewhat recent
+            
+            // Add progress based on repository size (commits, issues, etc.)
+            if (repo.stargazers_count > 0) progress += 15;
+            if (repo.forks_count > 0) progress += 10;
+            if (repo.open_issues_count > 0) progress += 5;
+            
+            // Cap at 95% (never 100% to show it's ongoing)
+            return Math.min(95, progress);
+        }
+        
+        function createQuestHTML(quest) {
+            const questType = QUEST_TYPES[quest.type] || QUEST_TYPES['ai'];
+            const progressPercent = quest.progress;
+            
+            return `
+                <div class="quest-item">
+                    <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/${questType.pokemon}" 
+                         alt="${questType.name}" class="quest-pokemon">
+                    <div class="quest-title">
+                        <span>⚔️ QUEST:</span> ${quest.title}
+                    </div>
+                    <div class="quest-description">${quest.description}</div>
+                    <div class="quest-progress">
+                        <div class="quest-progress-fill" style="width: ${progressPercent}%; background: ${questType.color};"></div>
+                    </div>
+                    <div class="quest-percentage">${progressPercent}%</div>
+                    <div class="quest-status">
+                        <div class="quest-type">${questType.name}</div>
+                        <div class="quest-level">Level ${Math.floor(progressPercent / 20) + 1}</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        async function updateQuests() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('quests').style.display = 'none';
+            document.getElementById('legendary-badge').style.display = 'none';
+            
+            const githubData = await fetchGitHubData();
+            if (!githubData) {
+                document.getElementById('loading').innerHTML = '❌ Error loading quests. Check console.';
+                return;
+            }
+            
+            const { repos, events } = githubData;
+            
+            // Get the 6 most recent/active repositories
+            const recentRepos = repos
+                .filter(repo => !repo.fork) // Only personal repos
+                .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+                .slice(0, 6);
+            
+            const quests = recentRepos.map(repo => {
+                const questType = categorizeQuest(repo);
+                const progress = calculateQuestProgress(repo);
+                
+                return {
+                    title: repo.name.replace(/-/g, ' ').replace(/_/g, ' ').toUpperCase(),
+                    description: repo.description || 'Building amazing software • Continuous development',
+                    type: questType,
+                    progress: progress,
+                    url: repo.html_url
+                };
+            });
+            
+            const questsHTML = quests.map(quest => createQuestHTML(quest)).join('');
+            document.getElementById('quests').innerHTML = questsHTML;
+            
+            // Calculate legendary badge count
+            const totalProgress = quests.reduce((sum, quest) => sum + quest.progress, 0);
+            const legendaryBadges = Math.floor(totalProgress / 75); // 1 badge per 25% average progress
+            document.getElementById('badge-count').textContent = legendaryBadges;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('quests').style.display = 'block';
+            document.getElementById('legendary-badge').style.display = 'block';
+        }
+        
+        // Initial load and periodic updates
+        updateQuests();
+        setInterval(updateQuests, 300000); // Update every 5 minutes
+    </script>
+</body>
+</html>
