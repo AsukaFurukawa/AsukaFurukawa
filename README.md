@@ -91,10 +91,11 @@
 <div align="center">
 
 ```
+                    🔴 POKÉDEX v2.0 - PROJECTS
+                    
     ████████████████████████████████████████████████████████████████
   ██                                                              ██
-██    🔴 POKÉDEX v2.0 - PROJECTS DATABASE                      ██
-██  ● ● ● ●  [LIGHTS: BLUE YELLOW ORANGE GREEN]                ██
+██  🔵 ● ● ●  [INDICATOR LIGHTS: BLUE YELLOW ORANGE GREEN]      ██
 ██                                                              ██
 ██  ┌─────────────────────────────────────────────────────────┐  ██
 ██  │  #001 AGRICULTURE_MIC                                   │  ██
@@ -127,6 +128,8 @@
 ██  │  Status: Active Research                               │  ██
 ██  │  [████████████████████████████████████████] 70%        │  ██
 ██  └─────────────────────────────────────────────────────────┘  ██
+██                                                              ██
+██  🔴 ●  [CONTROL PANEL]  ● ● ●  [SPEAKER GRILLE]           ██
 ██                                                              ██
 ██  [D-PAD] [A] [B] [START] [SELECT]                         ██
 ██  Speaker: ████ ████ ████                                 ██
