@@ -147,8 +147,8 @@
 
 <div align="center">
 
-<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log-dynamic.html" target="_blank">
-  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-LIVE_TRACKING-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
+<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log-real.html" target="_blank">
+  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-REAL_TRACKING-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
 </a>
 
 <br/><br/>
