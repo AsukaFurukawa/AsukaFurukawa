@@ -167,15 +167,15 @@
 🏆 GYM BADGE COLLECTION 🏆
 </div>
 
-<div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap;">
+<div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; flex-wrap: nowrap;">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/fire-badge.svg" alt="Fire Badge" width="80" title="🔥 Fire Badge - Hot Streak (2/3 days) - 🔒 LOCKED">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/fire-badge.svg" alt="Fire Badge" width="60" title="🔥 Fire Badge - Hot Streak (2/3 days) - 🔒 LOCKED">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/water-badge.svg" alt="Water Badge" width="80" title="💧 Water Badge - Deep Diver (12/5 repos) - ✅ EARNED">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/water-badge.svg" alt="Water Badge" width="60" title="💧 Water Badge - Deep Diver (12/5 repos) - ✅ EARNED">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/electric-badge.svg" alt="Electric Badge" width="80" title="⚡ Electric Badge - Power User (87/50 commits) - ✅ EARNED">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/electric-badge.svg" alt="Electric Badge" width="60" title="⚡ Electric Badge - Power User (87/50 commits) - ✅ EARNED">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/grass-badge.svg" alt="Grass Badge" width="80" title="🌿 Grass Badge - Code Gardener (7/3 languages) - ✅ EARNED">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/grass-badge.svg" alt="Grass Badge" width="60" title="🌿 Grass Badge - Code Gardener (7/3 languages) - ✅ EARNED">
 
 </div>
 
