@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .charmander-body { fill: #ff6b35; }
+      .charmander-belly { fill: #ffd700; }
+      .charmander-eye { fill: #000; }
+      .charmander-nose { fill: #000; }
+      .charmander-mouth { fill: #000; }
+      .charmander-flame { fill: #ff4500; }
+      .charmander-flame-inner { fill: #ffd700; }
+      .charmander-tail { fill: #ff6b35; }
+    </style>
+  </defs>
+  
+  <!-- Charmander Body -->
+  <ellipse cx="32" cy="40" rx="16" ry="18" class="charmander-body">
+    <animate attributeName="ry" values="18;16;18" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Head -->
+  <circle cx="32" cy="24" r="14" class="charmander-body">
+    <animate attributeName="cy" values="24;22;24" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Belly -->
+  <ellipse cx="32" cy="38" rx="8" ry="12" class="charmander-belly">
+    <animate attributeName="ry" values="12;10;12" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Eyes -->
+  <circle cx="28" cy="20" r="3" class="charmander-eye">
+    <animate attributeName="cy" values="20;18;20" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="36" cy="20" r="3" class="charmander-eye">
+    <animate attributeName="cy" values="20;18;20" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Eye highlights -->
+  <circle cx="29" cy="19" r="1" fill="white">
+    <animate attributeName="cy" values="19;17;19" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="37" cy="19" r="1" fill="white">
+    <animate attributeName="cy" values="19;17;19" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Nose -->
+  <ellipse cx="32" cy="26" rx="1" ry="1" class="charmander-nose">
+    <animate attributeName="cy" values="26;24;26" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Mouth -->
+  <path d="M 30 30 Q 32 32 34 30" stroke="black" stroke-width="1" fill="none">
+    <animate attributeName="d" values="M 30 30 Q 32 32 34 30;M 30 30 Q 32 33 34 30;M 30 30 Q 32 32 34 30" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Tail -->
+  <ellipse cx="48" cy="35" rx="10" ry="6" class="charmander-tail" transform="rotate(20 48 35)">
+    <animate attributeName="cy" values="35;33;35" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Flame -->
+  <ellipse cx="52" cy="32" rx="4" ry="8" class="charmander-flame" transform="rotate(20 52 32)">
+    <animate attributeName="ry" values="8;10;8" dur="1s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="52" cy="30" rx="2" ry="6" class="charmander-flame-inner" transform="rotate(20 52 30)">
+    <animate attributeName="ry" values="6;8;6" dur="1s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Flame sparks -->
+  <circle cx="50" cy="28" r="1" fill="#ffd700" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;0" dur="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="54" cy="26" r="1" fill="#ffd700" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;0" dur="0.8s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="51" cy="24" r="1" fill="#ffd700" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;0" dur="0.8s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Arms -->
+  <ellipse cx="20" cy="35" rx="4" ry="8" class="charmander-body" transform="rotate(-20 20 35)">
+    <animate attributeName="cy" values="35;33;35" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="44" cy="35" rx="4" ry="8" class="charmander-body" transform="rotate(20 44 35)">
+    <animate attributeName="cy" values="35;33;35" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Legs -->
+  <ellipse cx="28" cy="52" rx="4" ry="6" class="charmander-body">
+    <animate attributeName="cy" values="52;50;52" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="36" cy="52" rx="4" ry="6" class="charmander-body">
+    <animate attributeName="cy" values="52;50;52" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+</svg>

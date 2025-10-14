@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .greninja-body { fill: #4169e1; }
+      .greninja-tongue { fill: #ff69b4; }
+      .greninja-eye { fill: #000; }
+      .greninja-nose { fill: #000; }
+      .greninja-mouth { fill: #000; }
+      .greninja-scarf { fill: #ffd700; }
+      .greninja-water { fill: #00bfff; }
+      .greninja-shadow { fill: #1e3a8a; }
+    </style>
+  </defs>
+  
+  <!-- Greninja Body -->
+  <ellipse cx="32" cy="40" rx="16" ry="18" class="greninja-body">
+    <animate attributeName="ry" values="18;16;18" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Head -->
+  <circle cx="32" cy="22" r="12" class="greninja-body">
+    <animate attributeName="cy" values="22;20;22" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Eyes -->
+  <circle cx="28" cy="18" r="3" class="greninja-eye">
+    <animate attributeName="cy" values="18;16;18" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="36" cy="18" r="3" class="greninja-eye">
+    <animate attributeName="cy" values="18;16;18" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Eye highlights -->
+  <circle cx="29" cy="17" r="1" fill="white">
+    <animate attributeName="cy" values="17;15;17" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="37" cy="17" r="1" fill="white">
+    <animate attributeName="cy" values="17;15;17" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Nose -->
+  <ellipse cx="32" cy="24" rx="1" ry="1" class="greninja-nose">
+    <animate attributeName="cy" values="24;22;24" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Mouth -->
+  <path d="M 30 26 Q 32 28 34 26" stroke="black" stroke-width="1" fill="none">
+    <animate attributeName="d" values="M 30 26 Q 32 28 34 26;M 30 26 Q 32 29 34 26;M 30 26 Q 32 28 34 26" dur="2.8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Tongue -->
+  <ellipse cx="32" cy="30" rx="2" ry="6" class="greninja-tongue">
+    <animate attributeName="ry" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Scarf -->
+  <ellipse cx="32" cy="35" rx="8" ry="4" class="greninja-scarf">
+    <animate attributeName="ry" values="4;3;4" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Arms -->
+  <ellipse cx="18" cy="35" rx="4" ry="10" class="greninja-body" transform="rotate(-20 18 35)">
+    <animate attributeName="cy" values="35;33;35" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="46" cy="35" rx="4" ry="10" class="greninja-body" transform="rotate(20 46 35)">
+    <animate attributeName="cy" values="35;33;35" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Legs -->
+  <ellipse cx="28" cy="52" rx="4" ry="8" class="greninja-body">
+    <animate attributeName="cy" values="52;50;52" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="36" cy="52" rx="4" ry="8" class="greninja-body">
+    <animate attributeName="cy" values="52;50;52" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Water effects -->
+  <circle cx="16" cy="20" r="2" class="greninja-water" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="48" cy="25" r="2" class="greninja-water" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.2s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="20" cy="45" r="2" class="greninja-water" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.2s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Shadow/stealth effect -->
+  <ellipse cx="32" cy="45" rx="20" ry="8" class="greninja-shadow" opacity="0.3">
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Water droplets -->
+  <circle cx="12" cy="15" r="1" fill="#00bfff" opacity="0.6">
+    <animate attributeName="cy" values="15;12;15" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="52" cy="18" r="1" fill="#00bfff" opacity="0.6">
+    <animate attributeName="cy" values="18;15;18" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="8" cy="35" r="1" fill="#00bfff" opacity="0.6">
+    <animate attributeName="cy" values="35;32;35" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+</svg>

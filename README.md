@@ -36,6 +36,13 @@
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=16&duration=3000&pause=700&color=00E6E6&center=true&vCenter=true&width=800&lines=Hi%2C+I%27m+Prachi+%F0%9F%8E%AF;Full%E2%80%91stack+%E2%80%A2+ML+%E2%80%A2+Data+Viz;Catching+bugs+%E2%9A%A1%EF%B8%8F+Evolving+builds+%F0%9F%8D%83+Shipping+legendaries+%F0%9F%9A%80" alt="Typing SVG" />
   </a>
+  
+  <br/>
+  
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pikachu-animated.svg" alt="Pikachu" width="48" style="margin: 0 10px;">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/charmander-animated.svg" alt="Charmander" width="48" style="margin: 0 10px;">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/lucario-animated.svg" alt="Lucario" width="48" style="margin: 0 10px;">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/greninja-animated.svg" alt="Greninja" width="48" style="margin: 0 10px;">
 </div>
 
 <a id="trainer-card"></a>
@@ -150,6 +157,10 @@
 <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log-real.html" target="_blank">
   <img src="https://img.shields.io/badge/🎮_QUEST_LOG-REAL_TRACKING-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
 </a>
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/lucario-animated.svg" alt="Lucario" width="32" style="float: left; margin-right: 10px;">
 
 <br/><br/>
 
