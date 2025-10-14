@@ -222,7 +222,7 @@ Press A to accept quest • Press B to view rewards
 
 <p align="center">
   <a href="https://github.com/AsukaFurukawa?tab=repositories">
-    <img src="https://img.shields.io/badge/View_All_27_Repos-181717?style=for-the-badge&logo=github&logoColor=white" />
+    <img src="https://img.shields.io/badge/View_All_Repos-181717?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
 
