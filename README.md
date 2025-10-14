@@ -44,7 +44,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer_card.png" alt="Trainer Card" width="600">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer_card.png" alt="Trainer Card" width="400">
 
 </div>
 
@@ -54,25 +54,7 @@
 
 <div align="center">
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  QUEST LOG • Active Learning Goals                         │
-│                                                             │
-│  ⚡ Advanced System Design                                 │
-│     ████████████████████████████████████████ 75%           │
-│     Building distributed systems • Kafka + Redis patterns  │
-│                                                             │
-│  🧠 Advanced ML & Deep Learning                           │
-│     ████████████████████████████████████████ 60%           │
-│     Transformers, BERT, GPT architectures • Fine-tuning    │
-│                                                             │
-│  ☁️  Cloud-Native Architecture                            │
-│     ████████████████████████████████████████ 80%           │
-│     Kubernetes + Helm deployments • Microservices patterns│
-│                                                             │
-│  ⭐ Legendary Quest Badge: 3/12                           │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.svg" alt="Quest Log" width="600">
 
 </div>
 
