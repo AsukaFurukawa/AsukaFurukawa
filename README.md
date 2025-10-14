@@ -37,7 +37,23 @@
 ### Trainer Card
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer-card.svg" alt="Trainer Card" width="720">
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  TRAINER: PRACHI SINHA                                      │
+│  Role: Full‑stack • ML • Data Viz                          │
+│                                                             │
+│  ⚡ TypeScript    ████████████████████████ 88%             │
+│  🐍 Python        ████████████████████████ 84%             │
+│  ⚛️  React         ████████████████████████ 86%             │
+│  🧠 Data & ML     ████████████████████████ 78%             │
+│  ☁️  Cloud & DevOps ████████████████████████ 70%             │
+│                                                             │
+│  Abilities: Clean UI • Data Storytelling • Rapid Prototyping│
+│  Signature Move: Refactor → +20 readability, −10 complexity│
+└─────────────────────────────────────────────────────────────┘
+```
+
 </div>
 
 <a id="quest-log"></a>
@@ -45,35 +61,77 @@
 ### Quest Log
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.svg" alt="Quest Log" width="720">
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  QUEST LOG • Active Learning Goals                         │
+│                                                             │
+│  ⚡ Advanced System Design                                 │
+│     ████████████████████████████████████████ 75%           │
+│     Building distributed systems • Kafka + Redis patterns  │
+│                                                             │
+│  🧠 Advanced ML & Deep Learning                           │
+│     ████████████████████████████████████████ 60%           │
+│     Transformers, BERT, GPT architectures • Fine-tuning    │
+│                                                             │
+│  ☁️  Cloud-Native Architecture                            │
+│     ████████████████████████████████████████ 80%           │
+│     Kubernetes + Helm deployments • Microservices patterns│
+│                                                             │
+│  ⭐ Legendary Quest Badge: 3/12                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
 </div>
 
 <a id="pokedex-projects"></a>
 
 ### Pokédex (Projects)
 
-<p align="center">✨ Featured repositories</p>
-
 <div align="center">
-  <a href="https://github.com/AsukaFurukawa/Agriculture_MIC">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=Agriculture_MIC&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=BigData-Sentiment-Analysis&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <br/>
-  <a href="https://github.com/AsukaFurukawa/OmniOrchestrator">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=OmniOrchestrator&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/MyBlog">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=MyBlog&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
-  <a href="https://github.com/AsukaFurukawa/ResearchHub">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AsukaFurukawa&repo=ResearchHub&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&icon_color=ff3e3e&hide_border=true" />
-  </a>
+
+#### 🌱 **#001 Agriculture_MIC**
+*Intelligent crop insights, alerts, and analytics*
+- **Type**: Full-Stack • ML • Data Viz
+- **Tech**: TypeScript, Python, React, PostgreSQL
+- **Status**: Active Development
+- **Repo**: [`AsukaFurukawa/Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC)
+
+#### 🏗️ **#002 AI-Driven Structural Health**
+*Vision models for damage detection using drone imagery*
+- **Type**: Computer Vision • ML • Research
+- **Tech**: Python, PyTorch, OpenCV, TensorFlow
+- **Status**: Research Phase
+- **Repo**: [`AI-Driven-Structural-Health-Monitoring`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery)
+
+#### 📊 **#003 BigData-Sentiment-Analysis**
+*Scalable sentiment pipelines and dashboards*
+- **Type**: Big Data • Analytics • Visualization
+- **Tech**: Python, Spark, Kafka, Hadoop
+- **Status**: Production Ready
+- **Repo**: [`AsukaFurukawa/BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis)
+
+#### ⚙️ **#004 OmniOrchestrator**
+*Automations and multi-tool workflows*
+- **Type**: DevOps • Automation • Integration
+- **Tech**: Node.js, Docker, Kubernetes, GitHub Actions
+- **Status**: Active Development
+- **Repo**: [`AsukaFurukawa/OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator)
+
+#### 📝 **#005 MyBlog**
+*Typed developer blog and notes*
+- **Type**: Documentation • Blog • Knowledge Base
+- **Tech**: TypeScript, Next.js, MDX, Tailwind
+- **Status**: Regular Updates
+- **Repo**: [`AsukaFurukawa/MyBlog`](https://github.com/AsukaFurukawa/MyBlog)
+
+#### 🔬 **#006 ResearchHub**
+*Experiments and notebooks*
+- **Type**: Research • ML • Data Science
+- **Tech**: Python, Jupyter, Pandas, NumPy
+- **Status**: Active Research
+- **Repo**: [`AsukaFurukawa/ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub)
+
 </div>
 
 <p align="center">
