@@ -44,7 +44,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer-card.svg" alt="Trainer Card" width="600">
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer_card.png" alt="Trainer Card" width="600">
 
 </div>
 
