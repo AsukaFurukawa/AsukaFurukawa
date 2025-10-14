@@ -54,35 +54,58 @@
 
 <div align="center">
 
-<table>
-<tr>
-<td align="center" width="600">
+<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.html" target="_blank">
+  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-v2.0-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
+</a>
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  🎮 QUEST LOG v2.0 • Active Learning Goals                 │
-│                                                             │
-│  ⚔️ QUEST: Advanced System Design                          │
-│     Building distributed systems • Kafka + Redis patterns  │
-│     ████████████████████████████████████████ 75%           │
-│                                                             │
-│  🧠 QUEST: Advanced ML & Deep Learning                     │
-│     Transformers, BERT, GPT architectures • Fine-tuning    │
-│     ████████████████████████████████████████ 60%           │
-│                                                             │
-│  ☁️ QUEST: Cloud-Native Architecture                      │
-│     Kubernetes + Helm deployments • Microservices patterns │
-│     ████████████████████████████████████████ 80%           │
-│                                                             │
-│  🏆 Legendary Quest Badge: 3/12                           │
-│                                                             │
-│  Press A to accept quest • Press B to view rewards          │
-└─────────────────────────────────────────────────────────────┘
-```
+<br/><br/>
 
-</td>
-</tr>
-</table>
+<div style="background: linear-gradient(135deg, #dc2626, #b91c1c); border: 4px solid #1f2937; border-radius: 25px; padding: 20px; max-width: 600px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+
+<div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 3px solid #374151; border-radius: 8px; padding: 20px; margin: 10px 0;">
+
+<div style="text-align: center; font-size: 18px; color: #60a5fa; margin-bottom: 20px; font-weight: bold; font-family: monospace;">
+🎮 QUEST LOG v2.0
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">⚔️ QUEST: Advanced System Design</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Building distributed systems • Kafka + Redis patterns</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 75%; background: #3b82f6; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">75%</div>
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">🧠 QUEST: Advanced ML & Deep Learning</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Transformers, BERT, GPT architectures • Fine-tuning</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 60%; background: #eab308; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">60%</div>
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">☁️ QUEST: Cloud-Native Architecture</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Kubernetes + Helm deployments • Microservices patterns</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 80%; background: #22c55e; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">80%</div>
+</div>
+
+<div style="background: #fbbf24; color: #1f2937; padding: 10px 20px; border-radius: 15px; text-align: center; font-weight: bold; margin: 20px 0; font-family: monospace;">
+🏆 Legendary Quest Badge: 3/12
+</div>
+
+</div>
+
+<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 12px; font-family: monospace;">
+Press A to accept quest • Press B to view rewards
+</div>
+
+</div>
 
 </div>
 
