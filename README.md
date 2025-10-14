@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="#trainer-card">Trainer Card</a> •
+  <a href="#quest-log">Quest Log</a> •
   <a href="#pokedex-projects">Pokédex (Projects)</a> •
   <a href="#skills">Skills</a> •
   <a href="#stats">Stats</a> •
@@ -38,6 +39,14 @@
 
 <div align="center">
   <img src="assets/trainer-card.svg" alt="Trainer Card" width="720">
+</div>
+
+<a id="quest-log"></a>
+
+### Quest Log
+
+<div align="center">
+  <img src="assets/quest-log.svg" alt="Quest Log" width="720">
 </div>
 
 <a id="pokedex-projects"></a>
@@ -191,6 +200,24 @@
   <img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AsukaFurukawa&layout=compact&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9" />
 
 </div>
+
+### GitHub Metrics
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=AsukaFurukawa&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9&hide_border=true&layout=compact" />
+</div>
+
+<details>
+  <summary>📊 Detailed Metrics</summary>
+  <br/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AsukaFurukawa&theme=tokyonight" />
+  <br/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AsukaFurukawa&theme=tokyonight" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AsukaFurukawa&theme=tokyonight" />
+  <br/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=AsukaFurukawa&theme=tokyonight" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=AsukaFurukawa&theme=tokyonight" />
+</details>
 
 <a id="achievements"></a>
 

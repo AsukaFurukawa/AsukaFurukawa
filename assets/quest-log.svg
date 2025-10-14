@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480" shape-rendering="crispEdges">
+  <defs>
+    <linearGradient id="bg-quest" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1324"/>
+      <stop offset="100%" stop-color="#08101b"/>
+    </linearGradient>
+    <linearGradient id="progress-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="progress-2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="progress-3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="progress-4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <symbol id="star" viewBox="0 0 24 24">
+      <polygon points="12,2 15,10 24,10 17,16 20,24 12,18 4,24 7,16 0,10 9,10" fill="#fbbf24"/>
+    </symbol>
+  </defs>
+
+  <rect x="10" y="10" width="960" height="460" rx="18" fill="url(#bg-quest)" stroke="#0ea5e9" stroke-width="6"/>
+
+  <g filter="url(#glow)">
+    <text x="40" y="65" font-size="32" font-family="'Press Start 2P','VT323',monospace" fill="#a5f3fc">QUEST LOG</text>
+    <text x="40" y="100" font-size="16" font-family="'Press Start 2P','VT323',monospace" fill="#cbd5e1">Active Quests • Learning in Progress</text>
+
+    <!-- Quest 1: Advanced System Design -->
+    <text x="40" y="150" font-size="18" font-family="'Press Start 2P','VT323',monospace" fill="#fbbf24">⚡ Advanced System Design</text>
+    <rect x="40" y="165" width="860" height="28" fill="#0b2137" stroke="#172554" stroke-width="3" rx="4"/>
+    <rect x="40" y="165" width="645" height="28" fill="url(#progress-1)" rx="4"/>
+    <text x="920" y="186" text-anchor="end" font-size="18" font-family="monospace" fill="#fbbf24" font-weight="bold">75%</text>
+    <text x="40" y="215" font-size="14" font-family="monospace" fill="#94a3b8">Building distributed systems • Kafka + Redis patterns</text>
+
+    <!-- Quest 2: Advanced ML & Deep Learning -->
+    <text x="40" y="255" font-size="18" font-family="'Press Start 2P','VT323',monospace" fill="#a78bfa">🧠 Advanced ML & Deep Learning</text>
+    <rect x="40" y="270" width="860" height="28" fill="#0b2137" stroke="#172554" stroke-width="3" rx="4"/>
+    <rect x="40" y="270" width="516" height="28" fill="url(#progress-2)" rx="4"/>
+    <text x="920" y="291" text-anchor="end" font-size="18" font-family="monospace" fill="#a78bfa" font-weight="bold">60%</text>
+    <text x="40" y="320" font-size="14" font-family="monospace" fill="#94a3b8">Transformers, BERT, GPT architectures • Fine-tuning LLMs</text>
+
+    <!-- Quest 3: Cloud-Native Architecture -->
+    <text x="40" y="360" font-size="18" font-family="'Press Start 2P','VT323',monospace" fill="#34d399">☁️ Cloud-Native Architecture</text>
+    <rect x="40" y="375" width="860" height="28" fill="#0b2137" stroke="#172554" stroke-width="3" rx="4"/>
+    <rect x="40" y="375" width="688" height="28" fill="url(#progress-3)" rx="4"/>
+    <text x="920" y="396" text-anchor="end" font-size="18" font-family="monospace" fill="#34d399" font-weight="bold">80%</text>
+    <text x="40" y="425" font-size="14" font-family="monospace" fill="#94a3b8">Kubernetes + Helm deployments • Microservices patterns</text>
+
+    <!-- Legendary Quest Badge -->
+    <use href="#star" x="900" y="30" width="32" height="32"/>
+    <text x="945" y="56" font-size="14" font-family="'Press Start 2P','VT323',monospace" fill="#fbbf24">3/12</text>
+  </g>
+
+</svg>
+
