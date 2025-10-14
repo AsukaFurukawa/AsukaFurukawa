@@ -183,9 +183,6 @@
 🏆 BADGES EARNED: 3/4 🏆
 </div>
 
-<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 8px; font-family: monospace;">
-Press A to view detailed progress • Press B to see requirements
-</div>
 
 </div>
 
@@ -248,9 +245,6 @@ Press A to view detailed progress • Press B to see requirements
 
 </div>
 
-<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 12px; font-family: monospace;">
-Press A to accept quest • Press B to view rewards
-</div>
 
 </div>
 
