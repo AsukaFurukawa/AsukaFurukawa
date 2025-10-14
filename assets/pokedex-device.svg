@@ -15,6 +15,22 @@
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
       <feDropShadow dx="4" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
     </filter>
+    <!-- CRT scanline pattern -->
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect x="0" y="0" width="4" height="1" fill="#000" opacity="0.15"/>
+    </pattern>
+
+    <!-- Glossy sweep gradient -->
+    <linearGradient id="glossSweep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Clip path for screen area -->
+    <clipPath id="screenClip" clipPathUnits="userSpaceOnUse">
+      <rect x="55" y="85" width="290" height="190" rx="4" ry="4"/>
+    </clipPath>
   </defs>
 
   <!-- Device Body -->
@@ -39,6 +55,9 @@
   
   <!-- Screen Content -->
   <rect x="55" y="85" width="290" height="190" rx="4" ry="4" fill="url(#screenContent)"/>
+
+  <!-- CRT scanlines overlay -->
+  <rect x="55" y="85" width="290" height="190" rx="4" ry="4" fill="url(#scanlines)" opacity="0.25"/>
   
   <!-- Screen Header -->
   <text x="200" y="105" text-anchor="middle" font-family="monospace" font-size="12" fill="#60a5fa">
@@ -77,6 +96,13 @@
       <animate attributeName="width" values="0;152" dur="2s" begin="1s" fill="freeze"/>
     </rect>
     <text x="230" y="234" fill="#e2e8f0">95%</text>
+  </g>
+
+  <!-- Glossy sweep animation over screen -->
+  <g clip-path="url(#screenClip)">
+    <rect x="-320" y="85" width="160" height="190" fill="url(#glossSweep)" transform="skewX(-20)">
+      <animate attributeName="x" values="-320;480" dur="4s" repeatCount="indefinite"/>
+    </rect>
   </g>
   
   <!-- Control Panel -->
