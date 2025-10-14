@@ -48,91 +48,6 @@
 
 </div>
 
-<a id="quest-log"></a>
-
-### Quest Log
-
-<div align="center">
-
-<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.html" target="_blank">
-  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-v2.0-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
-</a>
-
-<br/><br/>
-
-<div style="background: linear-gradient(135deg, #dc2626, #b91c1c); border: 4px solid #1f2937; border-radius: 25px; padding: 20px; max-width: 600px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-
-<div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 3px solid #374151; border-radius: 8px; padding: 20px; margin: 10px 0;">
-
-<div style="text-align: center; font-size: 18px; color: #60a5fa; margin-bottom: 20px; font-weight: bold; font-family: monospace;">
-🎮 QUEST LOG v2.0
-</div>
-
-<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
-<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">⚔️ QUEST: Advanced System Design</div>
-<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Building distributed systems • Kafka + Redis patterns</div>
-<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
-<div style="height: 100%; width: 75%; background: #3b82f6; border-radius: 4px;"></div>
-</div>
-<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">75%</div>
-</div>
-
-<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
-<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">🧠 QUEST: Advanced ML & Deep Learning</div>
-<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Transformers, BERT, GPT architectures • Fine-tuning</div>
-<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
-<div style="height: 100%; width: 60%; background: #eab308; border-radius: 4px;"></div>
-</div>
-<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">60%</div>
-</div>
-
-<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
-<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">☁️ QUEST: Cloud-Native Architecture</div>
-<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Kubernetes + Helm deployments • Microservices patterns</div>
-<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
-<div style="height: 100%; width: 80%; background: #22c55e; border-radius: 4px;"></div>
-</div>
-<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">80%</div>
-</div>
-
-<div style="background: #fbbf24; color: #1f2937; padding: 10px 20px; border-radius: 15px; text-align: center; font-weight: bold; margin: 20px 0; font-family: monospace;">
-🏆 Legendary Quest Badge: 3/12
-</div>
-
-</div>
-
-<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 12px; font-family: monospace;">
-Press A to accept quest • Press B to view rewards
-</div>
-
-</div>
-
-</div>
-
-<a id="pokedex-projects"></a>
-
-### Pokédex (Projects)
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokedex-device.svg" alt="Pokédex Device" width="400" height="600" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-
-</div>
-
-#### 📱 **Project Links**
-- **#001**: [`Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC) - Intelligent crop insights
-- **#002**: [`AI-Driven-Structural-Health`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery) - Vision models for damage detection  
-- **#003**: [`BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis) - Scalable sentiment pipelines
-- **#004**: [`OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator) - Automations and workflows
-- **#005**: [`MyBlog`](https://github.com/AsukaFurukawa/MyBlog) - Developer blog and notes
-- **#006**: [`ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub) - Experiments and notebooks
-
-<p align="center">
-  <a href="https://github.com/AsukaFurukawa?tab=repositories">
-    <img src="https://img.shields.io/badge/View_All_27_Repos-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
-
 <a id="skills"></a>
 
 ### Skills
@@ -225,6 +140,91 @@ Press A to accept quest • Press B to view rewards
   <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" />
   <img src="https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=mocha&logoColor=white" />
 </div>
+
+<a id="quest-log"></a>
+
+### Quest Log
+
+<div align="center">
+
+<a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/quest-log.html" target="_blank">
+  <img src="https://img.shields.io/badge/🎮_QUEST_LOG-v2.0-red?style=for-the-badge&logo=github&logoColor=white" alt="Quest Log" />
+</a>
+
+<br/><br/>
+
+<div style="background: linear-gradient(135deg, #dc2626, #b91c1c); border: 4px solid #1f2937; border-radius: 25px; padding: 20px; max-width: 600px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+
+<div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 3px solid #374151; border-radius: 8px; padding: 20px; margin: 10px 0;">
+
+<div style="text-align: center; font-size: 18px; color: #60a5fa; margin-bottom: 20px; font-weight: bold; font-family: monospace;">
+🎮 QUEST LOG v2.0
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">⚔️ QUEST: Advanced System Design</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Building distributed systems • Kafka + Redis patterns</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 75%; background: #3b82f6; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">75%</div>
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">🧠 QUEST: Advanced ML & Deep Learning</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Transformers, BERT, GPT architectures • Fine-tuning</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 60%; background: #eab308; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">60%</div>
+</div>
+
+<div style="margin: 15px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+<div style="color: #fbbf24; font-weight: bold; font-size: 14px; font-family: monospace;">☁️ QUEST: Cloud-Native Architecture</div>
+<div style="color: #a78bfa; font-size: 12px; margin: 5px 0; font-family: monospace;">Kubernetes + Helm deployments • Microservices patterns</div>
+<div style="background: #374151; height: 8px; border-radius: 4px; margin: 5px 0; overflow: hidden;">
+<div style="height: 100%; width: 80%; background: #22c55e; border-radius: 4px;"></div>
+</div>
+<div style="text-align: right; color: white; font-weight: bold; font-family: monospace;">80%</div>
+</div>
+
+<div style="background: #fbbf24; color: #1f2937; padding: 10px 20px; border-radius: 15px; text-align: center; font-weight: bold; margin: 20px 0; font-family: monospace;">
+🏆 Legendary Quest Badge: 3/12
+</div>
+
+</div>
+
+<div style="background: white; padding: 10px; border-radius: 10px; text-align: center; color: #6b7280; font-size: 12px; font-family: monospace;">
+Press A to accept quest • Press B to view rewards
+</div>
+
+</div>
+
+</div>
+
+<a id="pokedex-projects"></a>
+
+### Pokédex (Projects)
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokedex-device.svg" alt="Pokédex Device" width="400" height="600" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+
+</div>
+
+#### 📱 **Project Links**
+- **#001**: [`Agriculture_MIC`](https://github.com/AsukaFurukawa/Agriculture_MIC) - Intelligent crop insights
+- **#002**: [`AI-Driven-Structural-Health`](https://github.com/AsukaFurukawa/AI-Driven-Structural-Health-Monitoring-Using-Simulated-Drone-Imagery) - Vision models for damage detection  
+- **#003**: [`BigData-Sentiment-Analysis`](https://github.com/AsukaFurukawa/BigData-Sentiment-Analysis) - Scalable sentiment pipelines
+- **#004**: [`OmniOrchestrator`](https://github.com/AsukaFurukawa/OmniOrchestrator) - Automations and workflows
+- **#005**: [`MyBlog`](https://github.com/AsukaFurukawa/MyBlog) - Developer blog and notes
+- **#006**: [`ResearchHub`](https://github.com/AsukaFurukawa/ResearchHub) - Experiments and notebooks
+
+<p align="center">
+  <a href="https://github.com/AsukaFurukawa?tab=repositories">
+    <img src="https://img.shields.io/badge/View_All_27_Repos-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
 <a id="stats"></a>
 
