@@ -24,11 +24,17 @@
   <a href="https://github.com/AsukaFurukawa">
     <img src="https://komarev.com/ghpvc/?username=AsukaFurukawa&style=for-the-badge&label=VISITORS&color=0ea5e9" alt="visitors">
   </a>
+  <a href="https://github.com/AsukaFurukawa">
+    <img src="https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge&logo=github" alt="status">
+  </a>
+  <a href="https://github.com/AsukaFurukawa">
+    <img src="https://img.shields.io/badge/Level-Developer-blue?style=for-the-badge&logo=code" alt="level">
+  </a>
 </p>
 
 <div align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=16&duration=3000&pause=700&color=00E6E6&center=true&vCenter=true&width=800&lines=Hi%2C+I%27m+Prachi+%F0%9F%8E%AF;Full%E2%80%91stack+%E2%80%A2+ML+%E2%80%A2+Data+Viz;Catching+bugs+%E2%9A%A1%EF%B8%8F+Evolving+builds+%F0%9F%8D%83+Shipping+legendaries" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=16&duration=3000&pause=700&color=00E6E6&center=true&vCenter=true&width=800&lines=Hi%2C+I%27m+Prachi+%F0%9F%8E%AF;Full%E2%80%91stack+%E2%80%A2+ML+%E2%80%A2+Data+Viz;Catching+bugs+%E2%9A%A1%EF%B8%8F+Evolving+builds+%F0%9F%8D%83+Shipping+legendaries+%F0%9F%9A%80" alt="Typing SVG" />
   </a>
 </div>
 
@@ -38,21 +44,7 @@
 
 <div align="center">
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  TRAINER: PRACHI SINHA                                      │
-│  Role: Full‑stack • ML • Data Viz                          │
-│                                                             │
-│  ⚡ TypeScript    ████████████████████████ 88%             │
-│  🐍 Python        ████████████████████████ 84%             │
-│  ⚛️  React         ████████████████████████ 86%             │
-│  🧠 Data & ML     ████████████████████████ 78%             │
-│  ☁️  Cloud & DevOps ████████████████████████ 70%             │
-│                                                             │
-│  Abilities: Clean UI • Data Storytelling • Rapid Prototyping│
-│  Signature Move: Refactor → +20 readability, −10 complexity│
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/trainer-card.svg" alt="Trainer Card" width="600">
 
 </div>
 
