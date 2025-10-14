@@ -90,7 +90,47 @@
 
 <div align="center">
 
-<iframe src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokedex.html" width="420" height="640" frameborder="0" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></iframe>
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🔴 POKÉDEX v2.0 - PROJECTS DATABASE                       │
+│  ● ● ● ●  [LIGHTS: BLUE YELLOW ORANGE GREEN]               │
+│                                                             │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │  #001 AGRICULTURE_MIC                                   │ │
+│  │  Type: Full-Stack • ML • Data Viz                      │ │
+│  │  Status: Active Development                            │ │
+│  │  [████████████████████████████████████████] 85%        │ │
+│  │                                                         │ │
+│  │  #002 AI-STRUCTURAL-HEALTH                             │ │
+│  │  Type: Computer Vision • ML • Research                 │ │
+│  │  Status: Research Phase                                │ │
+│  │  [████████████████████████████████████████] 60%        │ │
+│  │                                                         │ │
+│  │  #003 BIGDATA-SENTIMENT                                │ │
+│  │  Type: Big Data • Analytics • Visualization           │ │
+│  │  Status: Production Ready                              │ │
+│  │  [████████████████████████████████████████] 95%        │ │
+│  │                                                         │ │
+│  │  #004 OMNIORCHESTRATOR                                 │ │
+│  │  Type: DevOps • Automation • Integration               │ │
+│  │  Status: Active Development                           │ │
+│  │  [████████████████████████████████████████] 75%        │ │
+│  │                                                         │ │
+│  │  #005 MYBLOG                                           │ │
+│  │  Type: Documentation • Blog • Knowledge Base          │ │
+│  │  Status: Regular Updates                              │ │
+│  │  [████████████████████████████████████████] 90%        │ │
+│  │                                                         │ │
+│  │  #006 RESEARCHHUB                                      │ │
+│  │  Type: Research • ML • Data Science                    │ │
+│  │  Status: Active Research                               │ │
+│  │  [████████████████████████████████████████] 70%        │ │
+│  └─────────────────────────────────────────────────────────┘ │
+│                                                             │
+│  [D-PAD] [A] [B] [START] [SELECT]                         │
+│  Speaker: ████ ████ ████                                 │
+└─────────────────────────────────────────────────────────────┘
+```
 
 </div>
 
