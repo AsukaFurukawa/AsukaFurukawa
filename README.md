@@ -49,20 +49,252 @@
 ## 🥊 Pokémon Battle Showcase
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-embedded.html" target="_blank">
-    <img src="https://img.shields.io/badge/🥊_BATTLE_SHOWCASE-LUCARIO_vs_CHARIZARD-red?style=for-the-badge&logo=github&logoColor=white" alt="Battle Showcase" />
-  </a>
+  <img src="https://img.shields.io/badge/🥊_BATTLE_SHOWCASE-LUCARIO_vs_CHARIZARD-red?style=for-the-badge&logo=github&logoColor=white" alt="Battle Showcase" />
 </div>
 
-<div align="center">
-  <iframe src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-embedded.html" width="100%" height="600" style="border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"></iframe>
-</div>
-
-<div align="center">
-  <p style="color: #ccc; font-size: 12px; margin-top: 10px;">
+<div align="center" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); border: 4px solid #ffd700; border-radius: 20px; padding: 20px; margin: 20px 0; box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">
+  
+  <!-- Battle Field -->
+  <div style="position: relative; background: linear-gradient(45deg, #2c5530, #3a6b3f, #4a7c59); border: 3px solid #8b4513; border-radius: 15px; padding: 30px; min-height: 400px; margin: 20px 0;">
+    
+    <!-- Battle Title -->
+    <div style="text-align: center; font-size: 18px; color: #ffd700; margin-bottom: 20px; font-family: monospace; font-weight: bold;">
+      🥊 POKÉMON BATTLE - LUCARIO vs CHARIZARD 🥊
+    </div>
+    
+    <!-- Lucario -->
+    <div style="position: absolute; bottom: 50px; left: 50px; width: 80px; height: 80px; animation: bounce 2s ease-in-out infinite;">
+      <div style="width: 80px; height: 80px; background: #4ECDC4; border: 3px solid #26D0CE; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+        🥋
+      </div>
+      <div style="position: absolute; bottom: -30px; left: 0; background: rgba(0,0,0,0.8); border: 2px solid #ffd700; border-radius: 8px; padding: 5px; color: #fff; font-size: 8px; text-align: center; width: 80px;">
+        <div><strong>Lucario</strong></div>
+        <div>Level: 50</div>
+        <div>HP: <span id="lucarioHP">100/100</span></div>
+      </div>
+    </div>
+    
+    <!-- Charizard -->
+    <div style="position: absolute; top: 50px; right: 50px; width: 80px; height: 80px; animation: bounce 2s ease-in-out infinite 1s;">
+      <div style="width: 80px; height: 80px; background: #FF6B6B; border: 3px solid #FF4757; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+        🔥
+      </div>
+      <div style="position: absolute; top: -30px; right: 0; background: rgba(0,0,0,0.8); border: 2px solid #ffd700; border-radius: 8px; padding: 5px; color: #fff; font-size: 8px; text-align: center; width: 80px;">
+        <div><strong>Charizard</strong></div>
+        <div>Level: 50</div>
+        <div>HP: <span id="charizardHP">85/100</span></div>
+      </div>
+    </div>
+    
+    <!-- VS Text -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; font-weight: bold; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+      VS
+    </div>
+    
+    <!-- Battle Menu -->
+    <div id="battleMenu" style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(0,0,0,0.9); border: 3px solid #ffd700; border-radius: 15px; padding: 20px;">
+      <div style="text-align: center; font-size: 12px; color: #ffd700; margin-bottom: 15px; font-family: monospace;">What will Lucario do?</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <button onclick="showMoves()" style="padding: 15px 20px; background: linear-gradient(45deg, #ff6b6b, #ff8e8e); border: 2px solid #ff4757; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">⚔️ FIGHT</button>
+        <button onclick="run()" style="padding: 15px 20px; background: linear-gradient(45deg, #f9ca24, #f0932b); border: 2px solid #f39c12; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">🏃 RUN</button>
+      </div>
+    </div>
+    
+    <!-- Moves Menu -->
+    <div id="movesMenu" style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(0,0,0,0.9); border: 3px solid #ffd700; border-radius: 15px; padding: 20px; display: none;">
+      <div style="text-align: center; font-size: 12px; color: #ffd700; margin-bottom: 15px; font-family: monospace;">Choose a move!</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <button onclick="useMove('Aura Sphere')" style="padding: 15px 20px; background: linear-gradient(45deg, #4ecdc4, #7dd3fc); border: 2px solid #26d0ce; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Aura Sphere</button>
+        <button onclick="useMove('Close Combat')" style="padding: 15px 20px; background: linear-gradient(45deg, #4ecdc4, #7dd3fc); border: 2px solid #26d0ce; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Close Combat</button>
+        <button onclick="useMove('Bone Rush')" style="padding: 15px 20px; background: linear-gradient(45deg, #4ecdc4, #7dd3fc); border: 2px solid #26d0ce; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Bone Rush</button>
+        <button onclick="useMove('Metal Claw')" style="padding: 15px 20px; background: linear-gradient(45deg, #4ecdc4, #7dd3fc); border: 2px solid #26d0ce; border-radius: 10px; color: white; font-family: monospace; font-size: 10px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Metal Claw</button>
+      </div>
+    </div>
+    
+    <!-- Battle Log -->
+    <div style="position: absolute; top: 20px; left: 20px; right: 20px; background: rgba(0,0,0,0.8); border: 2px solid #ffd700; border-radius: 10px; padding: 15px; color: #fff; font-size: 10px; max-height: 80px; overflow-y: auto; font-family: monospace;">
+      <div id="battleLog">🥊 Battle started! What will Lucario do?</div>
+    </div>
+    
+    <!-- Battle Stats -->
+    <div style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.8); border: 2px solid #ffd700; border-radius: 10px; padding: 15px; color: #fff; font-size: 8px; font-family: monospace;">
+      <div style="display: flex; justify-content: space-between; margin: 3px 0;"><span>Turn:</span><span id="turnCount">1</span></div>
+      <div style="display: flex; justify-content: space-between; margin: 3px 0;"><span>Lucario Wins:</span><span id="lucarioWins">0</span></div>
+      <div style="display: flex; justify-content: space-between; margin: 3px 0;"><span>Charizard Wins:</span><span id="charizardWins">0</span></div>
+      <div style="display: flex; justify-content: space-between; margin: 3px 0;"><span>Total Battles:</span><span id="totalBattles">0</span></div>
+    </div>
+    
+  </div>
+  
+  <div style="text-align: center; color: #ccc; font-size: 12px; margin-top: 10px;">
     🎮 Interactive battle system • Click buttons to play! • Choose your moves and battle!
-  </p>
+  </div>
+  
 </div>
+
+<style>
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.1); }
+}
+</style>
+
+<script>
+// Battle state
+let battleState = {
+  lucarioHP: 100,
+  charizardHP: 100,
+  lucarioMaxHP: 100,
+  charizardMaxHP: 100,
+  turn: 1,
+  lucarioWins: 0,
+  charizardWins: 0,
+  totalBattles: 0,
+  isBattleActive: true
+};
+
+// Move data
+const moves = {
+  'Aura Sphere': { power: 20, type: 'Fighting', accuracy: 95 },
+  'Close Combat': { power: 25, type: 'Fighting', accuracy: 90 },
+  'Bone Rush': { power: 15, type: 'Ground', accuracy: 85 },
+  'Metal Claw': { power: 18, type: 'Steel', accuracy: 90 }
+};
+
+// Show moves menu
+function showMoves() {
+  document.getElementById('battleMenu').style.display = 'none';
+  document.getElementById('movesMenu').style.display = 'block';
+}
+
+// Use move
+function useMove(moveName) {
+  if (!battleState.isBattleActive) return;
+  
+  const move = moves[moveName];
+  const accuracy = Math.random() * 100;
+  
+  if (accuracy > move.accuracy) {
+    addBattleMessage(`❌ ${moveName} missed!`);
+    document.getElementById('movesMenu').style.display = 'none';
+    setTimeout(() => charizardAttack(), 1000);
+    return;
+  }
+  
+  const damage = Math.floor(Math.random() * move.power) + move.power;
+  const isCritical = Math.random() < 0.2;
+  const finalDamage = isCritical ? damage * 2 : damage;
+  
+  battleState.charizardHP = Math.max(0, battleState.charizardHP - finalDamage);
+  
+  if (isCritical) {
+    addBattleMessage(`💥 Lucario used ${moveName}! Critical hit! ${finalDamage} damage!`);
+  } else {
+    addBattleMessage(`⚔️ Lucario used ${moveName}! ${finalDamage} damage!`);
+  }
+  
+  updateDisplay();
+  checkBattleEnd();
+  
+  if (battleState.isBattleActive) {
+    document.getElementById('movesMenu').style.display = 'none';
+    setTimeout(() => charizardAttack(), 1000);
+  }
+}
+
+// Run function
+function run() {
+  if (!battleState.isBattleActive) return;
+  
+  addBattleMessage(`🏃 Lucario ran away! Battle ended!`);
+  battleState.isBattleActive = false;
+  resetBattle();
+}
+
+// Charizard attack
+function charizardAttack() {
+  if (!battleState.isBattleActive) return;
+  
+  const moves = ['Flamethrower', 'Dragon Claw', 'Wing Attack', 'Fire Blast'];
+  const move = moves[Math.floor(Math.random() * moves.length)];
+  const damage = Math.floor(Math.random() * 25) + 15;
+  const isCritical = Math.random() < 0.15;
+  const finalDamage = isCritical ? damage * 2 : damage;
+  
+  battleState.lucarioHP = Math.max(0, battleState.lucarioHP - finalDamage);
+  
+  if (isCritical) {
+    addBattleMessage(`💥 Charizard used ${move}! Critical hit! ${finalDamage} damage!`);
+  } else {
+    addBattleMessage(`🔥 Charizard used ${move}! ${finalDamage} damage!`);
+  }
+  
+  updateDisplay();
+  checkBattleEnd();
+  
+  if (battleState.isBattleActive) {
+    setTimeout(() => showBattleMenu(), 1000);
+  }
+}
+
+// Update display
+function updateDisplay() {
+  document.getElementById('lucarioHP').textContent = `${battleState.lucarioHP}/${battleState.lucarioMaxHP}`;
+  document.getElementById('charizardHP').textContent = `${battleState.charizardHP}/${battleState.charizardMaxHP}`;
+  document.getElementById('turnCount').textContent = battleState.turn;
+  document.getElementById('lucarioWins').textContent = battleState.lucarioWins;
+  document.getElementById('charizardWins').textContent = battleState.charizardWins;
+  document.getElementById('totalBattles').textContent = battleState.totalBattles;
+}
+
+// Add battle message
+function addBattleMessage(message) {
+  const battleLog = document.getElementById('battleLog');
+  const messageDiv = document.createElement('div');
+  messageDiv.textContent = message;
+  battleLog.appendChild(messageDiv);
+  battleLog.scrollTop = battleLog.scrollHeight;
+}
+
+// Check battle end
+function checkBattleEnd() {
+  if (battleState.lucarioHP <= 0) {
+    battleState.charizardWins++;
+    battleState.totalBattles++;
+    battleState.isBattleActive = false;
+    addBattleMessage("🔥 Charizard wins! 🔥");
+  } else if (battleState.charizardHP <= 0) {
+    battleState.lucarioWins++;
+    battleState.totalBattles++;
+    battleState.isBattleActive = false;
+    addBattleMessage("🥋 Lucario wins! 🥋");
+  } else {
+    battleState.turn++;
+  }
+}
+
+// Show battle menu
+function showBattleMenu() {
+  document.getElementById('battleMenu').style.display = 'block';
+  document.getElementById('movesMenu').style.display = 'none';
+}
+
+// Reset battle
+function resetBattle() {
+  battleState.lucarioHP = 100;
+  battleState.charizardHP = 100;
+  battleState.turn = 1;
+  battleState.isBattleActive = true;
+  updateDisplay();
+  showBattleMenu();
+  addBattleMessage("🥊 New battle started! What will Lucario do?");
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  resetBattle();
+});
+</script>
 
 <a id="trainer-card"></a>
 
