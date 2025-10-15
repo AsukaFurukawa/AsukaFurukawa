@@ -79,6 +79,13 @@
             50% { transform: translateY(-20px) scale(1.1); }
         }
         
+        .pokemon-sprite {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+        
         .pokemon-info {
             position: absolute;
             background: rgba(0, 0, 0, 0.8);
@@ -489,6 +496,7 @@
             
             <!-- Lucario -->
             <div class="pokemon lucario" id="lucario">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" alt="Lucario" class="pokemon-sprite">
                 <div class="pokemon-info lucario-info">
                     <div><strong>Lucario</strong></div>
                     <div>Level: 50</div>
@@ -498,11 +506,11 @@
                     </div>
                     <div>HP: <span id="lucarioHP">100/100</span></div>
                 </div>
-                <div style="font-size: 80px; text-align: center; line-height: 120px;">🥋</div>
             </div>
             
             <!-- Charizard -->
             <div class="pokemon charizard" id="charizard">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charizard" class="pokemon-sprite">
                 <div class="pokemon-info charizard-info">
                     <div><strong>Charizard</strong></div>
                     <div>Level: 50</div>
@@ -512,7 +520,6 @@
                     </div>
                     <div>HP: <span id="charizardHP">85/100</span></div>
                 </div>
-                <div style="font-size: 80px; text-align: center; line-height: 120px;">🔥</div>
             </div>
             
             <!-- Battle Log -->
@@ -818,8 +825,7 @@
                 if (battleState.isBattleActive) {
                     createEffect('sparkle', Math.random() * 800 + 100, Math.random() * 300 + 100);
                 }
-            }
-        }, 3000);
+            }, 3000);
         });
     </script>
 </body>
