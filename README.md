@@ -296,7 +296,7 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.html" alt="Pokémon Adventure Map" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.svg" alt="Pokémon Adventure Map" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
 </div>
 
 <a id="achievements"></a>
