@@ -49,18 +49,18 @@
 ## 🥊 Pokémon Battle Showcase
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle.html" target="_blank">
+  <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-embedded.html" target="_blank">
     <img src="https://img.shields.io/badge/🥊_BATTLE_SHOWCASE-LUCARIO_vs_CHARIZARD-red?style=for-the-badge&logo=github&logoColor=white" alt="Battle Showcase" />
   </a>
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-showcase.svg" alt="Pokémon Battle Showcase" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+  <iframe src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-embedded.html" width="100%" height="600" style="border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"></iframe>
 </div>
 
 <div align="center">
   <p style="color: #ccc; font-size: 12px; margin-top: 10px;">
-    🎮 Interactive battle system • Click "BATTLE SHOWCASE" to play! • Choose your moves and battle!
+    🎮 Interactive battle system • Click buttons to play! • Choose your moves and battle!
   </p>
 </div>
 
