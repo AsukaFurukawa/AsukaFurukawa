@@ -1,283 +1,319 @@
-<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    <!-- Background gradients -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#B0E0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2c5530;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#3a6b3f;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4a7c59;stop-opacity:1" />
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E90FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000080;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="landGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
     </linearGradient>
     
     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="location1Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff8e8e;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="location2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7dd3fc;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="location3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#45b7d1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#96ceb4;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="location4Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f9ca24;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f0932b;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="location5Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#eb4d4b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6c5ce7;stop-opacity:1" />
-    </linearGradient>
-    
+    <!-- Filters for effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <filter id="pathGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-      <feMerge> 
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
     </filter>
+    
+    <!-- Pattern for water -->
+    <pattern id="waterPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#1E90FF" opacity="0.3"/>
+      <path d="M0,10 Q10,5 20,10 T40,10" stroke="#87CEEB" stroke-width="1" fill="none" opacity="0.6"/>
+    </pattern>
+    
+    <!-- Pattern for grass -->
+    <pattern id="grassPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="#32CD32" opacity="0.1"/>
+      <circle cx="15" cy="15" r="2" fill="#228B22" opacity="0.3"/>
+    </pattern>
   </defs>
   
-  <!-- Background -->
-  <rect width="1200" height="600" fill="url(#backgroundGradient)"/>
+  <!-- Sky Background -->
+  <rect width="1200" height="800" fill="url(#skyGradient)"/>
   
-  <!-- Adventure Map Container -->
-  <rect x="50" y="50" width="1100" height="500" rx="15" ry="15" fill="url(#mapGradient)" stroke="#ffd700" stroke-width="4" filter="url(#glow)"/>
+  <!-- Ocean -->
+  <path d="M0,0 L0,800 L200,750 L400,780 L600,800 L800,750 L1000,780 L1200,800 L1200,0 Z" fill="url(#oceanGradient)" fill-opacity="0.8"/>
+  <path d="M0,0 L0,800 L200,750 L400,780 L600,800 L800,750 L1000,780 L1200,800 L1200,0 Z" fill="url(#waterPattern)"/>
   
-  <!-- Map Title -->
-  <text x="600" y="100" text-anchor="middle" font-family="monospace" font-size="32" font-weight="bold" fill="#ffd700" filter="url(#glow)">
-    <tspan>🌟 PRACHI'S CODING ADVENTURE MAP 🌟</tspan>
-  </text>
+  <!-- Main Landmass -->
+  <path d="M200,750 L400,720 L600,750 L800,720 L1000,750 L1000,200 L800,150 L600,180 L400,150 L200,200 Z" fill="url(#landGradient)" filter="url(#shadow)"/>
+  <path d="M200,750 L400,720 L600,750 L800,720 L1000,750 L1000,200 L800,150 L600,180 L400,150 L200,200 Z" fill="url(#grassPattern)"/>
   
-  <!-- Dynamic Subtitle -->
-  <text x="600" y="130" text-anchor="middle" font-family="monospace" font-size="14" fill="#ccc">
-    <tspan>Loading real-time GitHub data... | Updates daily with your activity!</tspan>
-  </text>
+  <!-- Mountains -->
+  <path d="M300,200 L350,150 L400,180 L450,160 L500,200 L480,250 L400,280 L320,250 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
+  <path d="M700,180 L750,140 L800,170 L850,150 L900,180 L880,230 L800,260 L720,230 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
   
-  <!-- Golden Path -->
-  <rect x="100" y="300" width="1000" height="8" rx="4" ry="4" fill="url(#pathGradient)" filter="url(#pathGlow)">
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-  </rect>
+  <!-- Adventure Path -->
+  <path d="M250,300 Q350,280 450,320 T650,300 T850,320 T1050,300" stroke="url(#pathGradient)" stroke-width="12" fill="none" filter="url(#glow)"/>
+  <path d="M250,300 Q350,280 450,320 T650,300 T850,320 T1050,300" stroke="#8B4513" stroke-width="8" fill="none"/>
   
-  <!-- Adventure Locations -->
+  <!-- Route Numbers -->
+  <text x="300" y="290" text-anchor="middle" font-family="monospace" font-size="12" fill="#8B4513" font-weight="bold">01</text>
+  <text x="500" y="310" text-anchor="middle" font-family="monospace" font-size="12" fill="#8B4513" font-weight="bold">02</text>
+  <text x="700" y="290" text-anchor="middle" font-family="monospace" font-size="12" fill="#8B4513" font-weight="bold">03</text>
+  <text x="900" y="310" text-anchor="middle" font-family="monospace" font-size="12" fill="#8B4513" font-weight="bold">04</text>
   
-  <!-- Location 1: Home Base -->
-  <g transform="translate(150, 200)">
-    <circle cx="0" cy="0" r="30" fill="url(#location1Gradient)" stroke="#ff4757" stroke-width="3" filter="url(#glow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite"/>
+  <!-- Cities and Locations -->
+  
+  <!-- Home Base (Starter Town) -->
+  <g transform="translate(250, 350)">
+    <circle cx="0" cy="0" r="25" fill="#FF6B6B" stroke="#FF4757" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🏠</text>
-    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Home Base</text>
-    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Repos: 27</text>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="20" fill="white">🏠</text>
+    <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="10" fill="#8B4513" font-weight="bold">Home Base</text>
+    <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B4513">Repos: 27</text>
   </g>
   
-  <!-- Location 2: Python Forest -->
-  <g transform="translate(350, 250)">
-    <circle cx="0" cy="0" r="30" fill="url(#location2Gradient)" stroke="#26d0ce" stroke-width="3" filter="url(#glow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  <!-- Python Forest -->
+  <g transform="translate(450, 380)">
+    <circle cx="0" cy="0" r="25" fill="#4ECDC4" stroke="#26D0CE" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite" begin="0.5s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🐍</text>
-    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Python Forest</text>
-    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Commits: 143</text>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="20" fill="white">🐍</text>
+    <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="10" fill="#8B4513" font-weight="bold">Python Forest</text>
+    <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B4513">Commits: 143</text>
   </g>
   
-  <!-- Location 3: React Valley -->
-  <g transform="translate(600, 300)">
-    <circle cx="0" cy="0" r="30" fill="url(#location3Gradient)" stroke="#2ecc71" stroke-width="3" filter="url(#glow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="1s"/>
+  <!-- React Valley -->
+  <g transform="translate(650, 350)">
+    <circle cx="0" cy="0" r="25" fill="#45B7D1" stroke="#2ECC71" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite" begin="1s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">⚛️</text>
-    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">React Valley</text>
-    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Languages: 6</text>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="20" fill="white">⚛️</text>
+    <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="10" fill="#8B4513" font-weight="bold">React Valley</text>
+    <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B4513">Languages: 6</text>
   </g>
   
-  <!-- Location 4: DevOps Peak -->
-  <g transform="translate(850, 220)">
-    <circle cx="0" cy="0" r="30" fill="url(#location4Gradient)" stroke="#f39c12" stroke-width="3" filter="url(#glow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+  <!-- DevOps Peak -->
+  <g transform="translate(850, 380)">
+    <circle cx="0" cy="0" r="25" fill="#F9CA24" stroke="#F39C12" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite" begin="1.5s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🚀</text>
-    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">DevOps Peak</text>
-    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Streak: 3d</text>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="20" fill="white">🚀</text>
+    <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="10" fill="#8B4513" font-weight="bold">DevOps Peak</text>
+    <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B4513">Streak: 3d</text>
   </g>
   
-  <!-- Location 5: Champion's Summit -->
-  <g transform="translate(1050, 300)">
-    <circle cx="0" cy="0" r="30" fill="url(#location5Gradient)" stroke="#a29bfe" stroke-width="3" filter="url(#glow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="2s"/>
+  <!-- Champion's Summit -->
+  <g transform="translate(1050, 350)">
+    <circle cx="0" cy="0" r="25" fill="#EB4D4B" stroke="#A29BFE" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite" begin="2s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🏆</text>
-    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Champion's Summit</text>
-    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Stars: 0</text>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="20" fill="white">🏆</text>
+    <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="10" fill="#8B4513" font-weight="bold">Champion's Summit</text>
+    <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B4513">Stars: 0</text>
   </g>
   
   <!-- Pokémon Companions -->
   
   <!-- Pikachu -->
-  <g transform="translate(120, 150)">
-    <circle cx="0" cy="0" r="20" fill="#ffd700" stroke="#ffed4e" stroke-width="2">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite"/>
+  <g transform="translate(200, 320)">
+    <circle cx="0" cy="0" r="15" fill="#FFD700" stroke="#FFED4E" stroke-width="2" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="1.5s" repeatCount="indefinite"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">⚡</text>
-    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Pikachu</text>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="12" fill="white">⚡</text>
+    <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="6" fill="#8B4513">Pikachu</text>
   </g>
   
   <!-- Charmander -->
-  <g transform="translate(320, 200)">
-    <circle cx="0" cy="0" r="20" fill="#ff6b6b" stroke="#ff8e8e" stroke-width="2">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+  <g transform="translate(400, 350)">
+    <circle cx="0" cy="0" r="15" fill="#FF6B6B" stroke="#FF8E8E" stroke-width="2" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">🔥</text>
-    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Charmander</text>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="12" fill="white">🔥</text>
+    <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="6" fill="#8B4513">Charmander</text>
   </g>
   
   <!-- Lucario -->
-  <g transform="translate(570, 250)">
-    <circle cx="0" cy="0" r="20" fill="#45b7d1" stroke="#96ceb4" stroke-width="2">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+  <g transform="translate(600, 320)">
+    <circle cx="0" cy="0" r="15" fill="#45B7D1" stroke="#96CEB4" stroke-width="2" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="1.5s" repeatCount="indefinite" begin="1s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">🥋</text>
-    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Lucario</text>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="12" fill="white">🥋</text>
+    <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="6" fill="#8B4513">Lucario</text>
   </g>
   
   <!-- Greninja -->
-  <g transform="translate(820, 170)">
-    <circle cx="0" cy="0" r="20" fill="#4ecdc4" stroke="#7dd3fc" stroke-width="2">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+  <g transform="translate(800, 350)">
+    <circle cx="0" cy="0" r="15" fill="#4ECDC4" stroke="#7DD3FC" stroke-width="2" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
     </circle>
-    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">💧</text>
-    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Greninja</text>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="12" fill="white">💧</text>
+    <text x="0" y="25" text-anchor="middle" font-family="monospace" font-size="6" fill="#8B4513">Greninja</text>
+  </g>
+  
+  <!-- Trees and Forests -->
+  <g opacity="0.8">
+    <path d="M300,450 L310,420 L320,450 Z" fill="#228B22" filter="url(#shadow)"/>
+    <path d="M350,480 L360,450 L370,480 Z" fill="#228B22" filter="url(#shadow)"/>
+    <path d="M500,460 L510,430 L520,460 Z" fill="#228B22" filter="url(#shadow)"/>
+    <path d="M750,470 L760,440 L770,470 Z" fill="#228B22" filter="url(#shadow)"/>
+    <path d="M950,450 L960,420 L970,450 Z" fill="#228B22" filter="url(#shadow)"/>
+  </g>
+  
+  <!-- Clouds -->
+  <g opacity="0.7">
+    <ellipse cx="150" cy="100" rx="30" ry="15" fill="white" filter="url(#shadow)"/>
+    <ellipse cx="170" cy="100" rx="25" ry="12" fill="white"/>
+    <ellipse cx="130" cy="100" rx="20" ry="10" fill="white"/>
+    
+    <ellipse cx="400" cy="80" rx="25" ry="12" fill="white" filter="url(#shadow)"/>
+    <ellipse cx="420" cy="80" rx="20" ry="10" fill="white"/>
+    <ellipse cx="380" cy="80" rx="15" ry="8" fill="white"/>
+    
+    <ellipse cx="700" cy="90" rx="28" ry="14" fill="white" filter="url(#shadow)"/>
+    <ellipse cx="720" cy="90" rx="22" ry="11" fill="white"/>
+    <ellipse cx="680" cy="90" rx="18" ry="9" fill="white"/>
   </g>
   
   <!-- Floating Particles -->
-  <g opacity="0.8">
-    <circle cx="200" cy="100" r="2" fill="#ffd700">
-      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite"/>
+  <g opacity="0.6">
+    <circle cx="100" cy="200" r="2" fill="#FFD700">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-30; 0,0" dur="3s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="400" cy="80" r="2" fill="#ffd700">
-      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    <circle cx="300" cy="180" r="2" fill="#FFD700">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-30; 0,0" dur="3s" repeatCount="indefinite" begin="1s"/>
     </circle>
-    <circle cx="700" cy="120" r="2" fill="#ffd700">
-      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="1s"/>
+    <circle cx="500" cy="190" r="2" fill="#FFD700">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="2s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-30; 0,0" dur="3s" repeatCount="indefinite" begin="2s"/>
     </circle>
-    <circle cx="950" cy="90" r="2" fill="#ffd700">
-      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    <circle cx="700" cy="200" r="2" fill="#FFD700">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-30; 0,0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="900" cy="180" r="2" fill="#FFD700">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-30; 0,0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
     </circle>
   </g>
   
+  <!-- Map Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#8B4513" filter="url(#glow)">
+    <tspan>🌟 PRACHI'S CODING ADVENTURE REGION 🌟</tspan>
+  </text>
+  
   <!-- Stats Panel -->
-  <rect x="100" y="400" width="1000" height="80" rx="10" ry="10" fill="rgba(0,0,0,0.7)" stroke="#ffd700" stroke-width="2"/>
+  <rect x="100" y="500" width="1000" height="120" rx="15" ry="15" fill="rgba(139, 69, 19, 0.9)" stroke="#8B4513" stroke-width="3" filter="url(#shadow)"/>
   
-  <text x="200" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">143</text>
-  <text x="200" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Total Commits</text>
+  <text x="600" y="530" text-anchor="middle" font-family="monospace" font-size="18" fill="#FFD700" font-weight="bold">📊 ADVENTURE STATS</text>
   
-  <text x="400" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">27</text>
-  <text x="400" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Repositories</text>
+  <text x="200" y="560" text-anchor="middle" font-family="monospace" font-size="16" fill="#FFD700">143</text>
+  <text x="200" y="580" text-anchor="middle" font-family="monospace" font-size="10" fill="#F0F8FF">Total Commits</text>
   
-  <text x="600" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">6</text>
-  <text x="600" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Languages</text>
+  <text x="400" y="560" text-anchor="middle" font-family="monospace" font-size="16" fill="#FFD700">27</text>
+  <text x="400" y="580" text-anchor="middle" font-family="monospace" font-size="10" fill="#F0F8FF">Repositories</text>
   
-  <text x="800" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">3</text>
-  <text x="800" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Current Streak</text>
+  <text x="600" y="560" text-anchor="middle" font-family="monospace" font-size="16" fill="#FFD700">6</text>
+  <text x="600" y="580" text-anchor="middle" font-family="monospace" font-size="10" fill="#F0F8FF">Languages</text>
   
-  <text x="1000" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">0</text>
-  <text x="1000" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Total Stars</text>
+  <text x="800" y="560" text-anchor="middle" font-family="monospace" font-size="16" fill="#FFD700">3</text>
+  <text x="800" y="580" text-anchor="middle" font-family="monospace" font-size="10" fill="#F0F8FF">Current Streak</text>
+  
+  <text x="1000" y="560" text-anchor="middle" font-family="monospace" font-size="16" fill="#FFD700">0</text>
+  <text x="1000" y="580" text-anchor="middle" font-family="monospace" font-size="10" fill="#F0F8FF">Total Stars</text>
   
   <!-- Progress Bars -->
-  <rect x="150" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
-  <rect x="150" y="450" width="75" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+  <rect x="150" y="590" width="100" height="8" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+  <rect x="150" y="590" width="75" height="8" rx="4" ry="4" fill="url(#pathGradient)">
     <animate attributeName="width" values="0;75;75" dur="2s" repeatCount="indefinite"/>
   </rect>
   
-  <rect x="350" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
-  <rect x="350" y="450" width="60" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+  <rect x="350" y="590" width="100" height="8" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+  <rect x="350" y="590" width="60" height="8" rx="4" ry="4" fill="url(#pathGradient)">
     <animate attributeName="width" values="0;60;60" dur="2s" repeatCount="indefinite" begin="0.5s"/>
   </rect>
   
-  <rect x="550" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
-  <rect x="550" y="450" width="85" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+  <rect x="550" y="590" width="100" height="8" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+  <rect x="550" y="590" width="85" height="8" rx="4" ry="4" fill="url(#pathGradient)">
     <animate attributeName="width" values="0;85;85" dur="2s" repeatCount="indefinite" begin="1s"/>
   </rect>
   
-  <rect x="750" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
-  <rect x="750" y="450" width="30" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+  <rect x="750" y="590" width="100" height="8" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+  <rect x="750" y="590" width="30" height="8" rx="4" ry="4" fill="url(#pathGradient)">
     <animate attributeName="width" values="0;30;30" dur="2s" repeatCount="indefinite" begin="1.5s"/>
   </rect>
   
-  <rect x="950" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
-  <rect x="950" y="450" width="10" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+  <rect x="950" y="590" width="100" height="8" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+  <rect x="950" y="590" width="10" height="8" rx="4" ry="4" fill="url(#pathGradient)">
     <animate attributeName="width" values="0;10;10" dur="2s" repeatCount="indefinite" begin="2s"/>
   </rect>
   
   <!-- Quest Log -->
-  <rect x="100" y="500" width="1000" height="80" rx="10" ry="10" fill="rgba(0,0,0,0.8)" stroke="#4a7c59" stroke-width="2"/>
+  <rect x="100" y="640" width="1000" height="120" rx="15" ry="15" fill="rgba(34, 139, 34, 0.9)" stroke="#228B22" stroke-width="3" filter="url(#shadow)"/>
   
-  <text x="600" y="520" text-anchor="middle" font-family="monospace" font-size="16" fill="#4a7c59">📜 ACTIVE QUESTS (Real-time Progress)</text>
+  <text x="600" y="670" text-anchor="middle" font-family="monospace" font-size="18" fill="#90EE90" font-weight="bold">📜 ACTIVE QUESTS (Real-time Progress)</text>
   
-  <text x="200" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🔥 Master AI/ML</text>
-  <text x="200" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">70%</text>
+  <text x="200" y="700" text-anchor="middle" font-family="monospace" font-size="12" fill="#FFD700">🔥 Master AI/ML</text>
+  <text x="200" y="720" text-anchor="middle" font-family="monospace" font-size="8" fill="#F0F8FF">70%</text>
   
-  <text x="400" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">⚡ Full-Stack Apps</text>
-  <text x="400" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">85%</text>
+  <text x="400" y="700" text-anchor="middle" font-family="monospace" font-size="12" fill="#FFD700">⚡ Full-Stack Apps</text>
+  <text x="400" y="720" text-anchor="middle" font-family="monospace" font-size="8" fill="#F0F8FF">85%</text>
   
-  <text x="600" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">☁️ Cloud Deploy</text>
-  <text x="600" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">60%</text>
+  <text x="600" y="700" text-anchor="middle" font-family="monospace" font-size="12" fill="#FFD700">☁️ Cloud Deploy</text>
+  <text x="600" y="720" text-anchor="middle" font-family="monospace" font-size="8" fill="#F0F8FF">60%</text>
   
-  <text x="800" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🏆 Open Source</text>
-  <text x="800" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">40%</text>
+  <text x="800" y="700" text-anchor="middle" font-family="monospace" font-size="12" fill="#FFD700">🏆 Open Source</text>
+  <text x="800" y="720" text-anchor="middle" font-family="monospace" font-size="8" fill="#F0F8FF">40%</text>
   
-  <text x="1000" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🎯 Legendary</text>
-  <text x="1000" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">3/4</text>
+  <text x="1000" y="700" text-anchor="middle" font-family="monospace" font-size="12" fill="#FFD700">🎯 Legendary</text>
+  <text x="1000" y="720" text-anchor="middle" font-family="monospace" font-size="8" fill="#F0F8FF">3/4</text>
   
   <!-- Quest Progress Bars -->
-  <rect x="150" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
-  <rect x="150" y="565" width="70" height="4" rx="2" ry="2" fill="#3b82f6">
+  <rect x="150" y="730" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="150" y="730" width="70" height="6" rx="3" ry="3" fill="#3B82F6">
     <animate attributeName="width" values="0;70;70" dur="2s" repeatCount="indefinite"/>
   </rect>
   
-  <rect x="350" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
-  <rect x="350" y="565" width="85" height="4" rx="2" ry="2" fill="#3b82f6">
+  <rect x="350" y="730" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="350" y="730" width="85" height="6" rx="3" ry="3" fill="#3B82F6">
     <animate attributeName="width" values="0;85;85" dur="2s" repeatCount="indefinite" begin="0.5s"/>
   </rect>
   
-  <rect x="550" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
-  <rect x="550" y="565" width="60" height="4" rx="2" ry="2" fill="#3b82f6">
+  <rect x="550" y="730" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="550" y="730" width="60" height="6" rx="3" ry="3" fill="#3B82F6">
     <animate attributeName="width" values="0;60;60" dur="2s" repeatCount="indefinite" begin="1s"/>
   </rect>
   
-  <rect x="750" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
-  <rect x="750" y="565" width="40" height="4" rx="2" ry="2" fill="#3b82f6">
+  <rect x="750" y="730" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="750" y="730" width="40" height="6" rx="3" ry="3" fill="#3B82F6">
     <animate attributeName="width" values="0;40;40" dur="2s" repeatCount="indefinite" begin="1.5s"/>
   </rect>
   
-  <rect x="950" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
-  <rect x="950" y="565" width="75" height="4" rx="2" ry="2" fill="#3b82f6">
+  <rect x="950" y="730" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="950" y="730" width="75" height="6" rx="3" ry="3" fill="#3B82F6">
     <animate attributeName="width" values="0;75;75" dur="2s" repeatCount="indefinite" begin="2s"/>
   </rect>
 </svg>
