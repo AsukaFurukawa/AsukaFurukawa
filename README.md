@@ -55,7 +55,7 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle.html" alt="Pokémon Battle Showcase" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle-showcase.svg" alt="Pokémon Battle Showcase" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
 </div>
 
 <div align="center">

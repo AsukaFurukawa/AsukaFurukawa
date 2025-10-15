@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Battle Showcase</title>
+    <title>Pokémon Battle - Lucario vs Charizard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
@@ -51,7 +51,7 @@
             border: 3px solid #8b4513;
             border-radius: 15px;
             padding: 30px;
-            min-height: 400px;
+            min-height: 500px;
             overflow: hidden;
         }
         
@@ -60,7 +60,6 @@
             width: 120px;
             height: 120px;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
         
         .lucario {
@@ -80,11 +79,6 @@
             50% { transform: translateY(-20px) scale(1.1); }
         }
         
-        .pokemon:hover {
-            transform: scale(1.2);
-            animation: none;
-        }
-        
         .pokemon-info {
             position: absolute;
             background: rgba(0, 0, 0, 0.8);
@@ -93,16 +87,6 @@
             padding: 10px;
             color: #fff;
             font-size: 10px;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            pointer-events: none;
-            z-index: 10;
-        }
-        
-        .pokemon:hover .pokemon-info {
-            opacity: 1;
-            transform: translateY(-20px);
         }
         
         .lucario-info {
@@ -140,17 +124,37 @@
             width: 85%;
         }
         
-        .battle-actions {
+        .battle-menu {
             position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            display: none;
+        }
+        
+        .battle-menu.show {
+            display: block;
+        }
+        
+        .menu-title {
+            text-align: center;
+            font-size: 14px;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
         
-        .battle-btn {
-            padding: 10px 20px;
+        .menu-btn {
+            padding: 15px 20px;
             background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             border: 2px solid #ff4757;
             border-radius: 10px;
@@ -160,36 +164,73 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
         
-        .battle-btn:hover {
+        .menu-btn:hover {
             background: linear-gradient(45deg, #ff4757, #ff6b6b);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
         
-        .battle-btn:active {
+        .menu-btn:active {
             transform: translateY(0);
         }
         
-        .attack-btn {
+        .fight-btn {
             background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             border-color: #ff4757;
-        }
-        
-        .special-btn {
-            background: linear-gradient(45deg, #4ecdc4, #7dd3fc);
-            border-color: #26d0ce;
-        }
-        
-        .defend-btn {
-            background: linear-gradient(45deg, #45b7d1, #96ceb4);
-            border-color: #2ecc71;
         }
         
         .run-btn {
             background: linear-gradient(45deg, #f9ca24, #f0932b);
             border-color: #f39c12;
+        }
+        
+        .moves-menu {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            display: none;
+        }
+        
+        .moves-menu.show {
+            display: block;
+        }
+        
+        .moves-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .move-btn {
+            padding: 15px 20px;
+            background: linear-gradient(45deg, #4ecdc4, #7dd3fc);
+            border: 2px solid #26d0ce;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .move-btn:hover {
+            background: linear-gradient(45deg, #26d0ce, #4ecdc4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .move-btn:active {
+            transform: translateY(0);
         }
         
         .battle-log {
@@ -416,11 +457,32 @@
             background: linear-gradient(45deg, #ffed4e, #ffd700);
             transform: translateY(-2px);
         }
+        
+        .pokemon-attack {
+            animation: attack 0.5s ease-in-out;
+        }
+        
+        @keyframes attack {
+            0% { transform: translateX(0) scale(1); }
+            50% { transform: translateX(20px) scale(1.2); }
+            100% { transform: translateX(0) scale(1); }
+        }
+        
+        .pokemon-hit {
+            animation: hit 0.3s ease-in-out;
+        }
+        
+        @keyframes hit {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 <body>
     <div class="battle-container">
-        <h1 class="battle-title">🥊 POKÉMON BATTLE SHOWCASE 🥊</h1>
+        <h1 class="battle-title">🥊 POKÉMON BATTLE - LUCARIO vs CHARIZARD 🥊</h1>
         
         <div class="battle-field">
             <div class="battle-effects" id="battleEffects"></div>
@@ -455,7 +517,7 @@
             
             <!-- Battle Log -->
             <div class="battle-log" id="battleLog">
-                <div class="battle-message">🥊 Battle started! Choose your action!</div>
+                <div class="battle-message">🥊 Battle started! What will Lucario do?</div>
             </div>
             
             <!-- Battle Stats -->
@@ -478,12 +540,24 @@
                 </div>
             </div>
             
-            <!-- Battle Actions -->
-            <div class="battle-actions">
-                <button class="battle-btn attack-btn" onclick="attack()">⚔️ ATTACK</button>
-                <button class="battle-btn special-btn" onclick="specialAttack()">✨ SPECIAL</button>
-                <button class="battle-btn defend-btn" onclick="defend()">🛡️ DEFEND</button>
-                <button class="battle-btn run-btn" onclick="run()">🏃 RUN</button>
+            <!-- Main Battle Menu -->
+            <div class="battle-menu show" id="battleMenu">
+                <div class="menu-title">What will Lucario do?</div>
+                <div class="menu-grid">
+                    <button class="menu-btn fight-btn" onclick="showMoves()">⚔️ FIGHT</button>
+                    <button class="menu-btn run-btn" onclick="run()">🏃 RUN</button>
+                </div>
+            </div>
+            
+            <!-- Moves Menu -->
+            <div class="moves-menu" id="movesMenu">
+                <div class="menu-title">Choose a move!</div>
+                <div class="moves-grid">
+                    <button class="move-btn" onclick="useMove('Aura Sphere')">Aura Sphere</button>
+                    <button class="move-btn" onclick="useMove('Close Combat')">Close Combat</button>
+                    <button class="move-btn" onclick="useMove('Bone Rush')">Bone Rush</button>
+                    <button class="move-btn" onclick="useMove('Metal Claw')">Metal Claw</button>
+                </div>
             </div>
             
             <!-- Battle Timer -->
@@ -515,6 +589,14 @@
             isDefending: false
         };
         
+        // Move data
+        const moves = {
+            'Aura Sphere': { power: 20, type: 'Fighting', accuracy: 95 },
+            'Close Combat': { power: 25, type: 'Fighting', accuracy: 90 },
+            'Bone Rush': { power: 15, type: 'Ground', accuracy: 85 },
+            'Metal Claw': { power: 18, type: 'Steel', accuracy: 90 }
+        };
+        
         // Initialize battle
         function initBattle() {
             battleState.lucarioHP = 100;
@@ -523,7 +605,115 @@
             battleState.isBattleActive = true;
             battleState.isDefending = false;
             updateDisplay();
-            addBattleMessage("🥊 New battle started! Choose your action!");
+            showBattleMenu();
+            addBattleMessage("🥊 New battle started! What will Lucario do?");
+        }
+        
+        // Show battle menu
+        function showBattleMenu() {
+            document.getElementById('battleMenu').classList.add('show');
+            document.getElementById('movesMenu').classList.remove('show');
+        }
+        
+        // Show moves menu
+        function showMoves() {
+            document.getElementById('battleMenu').classList.remove('show');
+            document.getElementById('movesMenu').classList.add('show');
+        }
+        
+        // Use move
+        function useMove(moveName) {
+            if (!battleState.isBattleActive) return;
+            
+            const move = moves[moveName];
+            const accuracy = Math.random() * 100;
+            
+            if (accuracy > move.accuracy) {
+                addBattleMessage(`❌ ${moveName} missed!`);
+                document.getElementById('movesMenu').classList.remove('show');
+                setTimeout(() => charizardAttack(), 1000);
+                return;
+            }
+            
+            const damage = Math.floor(Math.random() * move.power) + move.power;
+            const isCritical = Math.random() < 0.2;
+            const finalDamage = isCritical ? damage * 2 : damage;
+            
+            battleState.charizardHP = Math.max(0, battleState.charizardHP - finalDamage);
+            
+            // Attack animation
+            document.getElementById('lucario').classList.add('pokemon-attack');
+            setTimeout(() => {
+                document.getElementById('lucario').classList.remove('pokemon-attack');
+                document.getElementById('charizard').classList.add('pokemon-hit');
+                setTimeout(() => {
+                    document.getElementById('charizard').classList.remove('pokemon-hit');
+                }, 300);
+            }, 250);
+            
+            if (isCritical) {
+                addBattleMessage(`💥 Lucario used ${moveName}! Critical hit! ${finalDamage} damage!`);
+                createEffect('sparkle', 300, 200);
+            } else {
+                addBattleMessage(`⚔️ Lucario used ${moveName}! ${finalDamage} damage!`);
+                createEffect('aura-effect', 300, 200);
+            }
+            
+            updateDisplay();
+            checkBattleEnd();
+            
+            if (battleState.isBattleActive) {
+                document.getElementById('movesMenu').classList.remove('show');
+                setTimeout(() => charizardAttack(), 1000);
+            }
+        }
+        
+        // Run function
+        function run() {
+            if (!battleState.isBattleActive) return;
+            
+            addBattleMessage(`🏃 Lucario ran away! Battle ended!`);
+            battleState.isBattleActive = false;
+            resetBattle();
+        }
+        
+        // Charizard attack
+        function charizardAttack() {
+            if (!battleState.isBattleActive) return;
+            
+            const moves = ['Flamethrower', 'Dragon Claw', 'Wing Attack', 'Fire Blast'];
+            const move = moves[Math.floor(Math.random() * moves.length)];
+            const damage = Math.floor(Math.random() * 25) + 15;
+            const isCritical = Math.random() < 0.15;
+            const finalDamage = battleState.isDefending ? Math.floor(damage * 0.5) : damage;
+            
+            battleState.lucarioHP = Math.max(0, battleState.lucarioHP - finalDamage);
+            battleState.isDefending = false;
+            
+            // Attack animation
+            document.getElementById('charizard').classList.add('pokemon-attack');
+            setTimeout(() => {
+                document.getElementById('charizard').classList.remove('pokemon-attack');
+                document.getElementById('lucario').classList.add('pokemon-hit');
+                setTimeout(() => {
+                    document.getElementById('lucario').classList.remove('pokemon-hit');
+                }, 300);
+            }, 250);
+            
+            if (isCritical) {
+                addBattleMessage(`💥 Charizard used ${move}! Critical hit! ${finalDamage} damage!`);
+                createEffect('flame-effect', 700, 300);
+            } else {
+                addBattleMessage(`🔥 Charizard used ${move}! ${finalDamage} damage!`);
+                createEffect('flame-effect', 700, 300);
+            }
+            
+            updateDisplay();
+            checkBattleEnd();
+            
+            if (battleState.isBattleActive) {
+                setTimeout(() => showBattleMenu(), 1000);
+            }
         }
         
         // Update display
@@ -584,111 +774,6 @@
             }, 2000);
         }
         
-        // Attack function
-        function attack() {
-            if (!battleState.isBattleActive) return;
-            
-            const damage = Math.floor(Math.random() * 20) + 10;
-            const isCritical = Math.random() < 0.2;
-            const finalDamage = isCritical ? damage * 2 : damage;
-            
-            battleState.charizardHP = Math.max(0, battleState.charizardHP - finalDamage);
-            
-            if (isCritical) {
-                addBattleMessage(`💥 Lucario used Aura Sphere! Critical hit! ${finalDamage} damage!`);
-                createEffect('sparkle', 300, 200);
-            } else {
-                addBattleMessage(`⚔️ Lucario used Aura Sphere! ${finalDamage} damage!`);
-                createEffect('aura-effect', 300, 200);
-            }
-            
-            updateDisplay();
-            checkBattleEnd();
-            
-            if (battleState.isBattleActive) {
-                setTimeout(() => charizardAttack(), 1000);
-            }
-        }
-        
-        // Special attack function
-        function specialAttack() {
-            if (!battleState.isBattleActive) return;
-            
-            // Show special attack timer
-            const timer = document.getElementById('battleTimer');
-            const timerCount = document.getElementById('timerCount');
-            timer.classList.add('show');
-            
-            let count = 3;
-            timerCount.textContent = count;
-            
-            const countdown = setInterval(() => {
-                count--;
-                timerCount.textContent = count;
-                if (count <= 0) {
-                    clearInterval(countdown);
-                    timer.classList.remove('show');
-                    
-                    const damage = Math.floor(Math.random() * 30) + 20;
-                    battleState.charizardHP = Math.max(0, battleState.charizardHP - damage);
-                    
-                    addBattleMessage(`✨ Lucario used Close Combat! ${damage} damage!`);
-                    createEffect('aura-effect', 300, 200);
-                    createEffect('sparkle', 350, 150);
-                    createEffect('sparkle', 250, 250);
-                    
-                    updateDisplay();
-                    checkBattleEnd();
-                    
-                    if (battleState.isBattleActive) {
-                        setTimeout(() => charizardAttack(), 1000);
-                    }
-                }
-            }, 500);
-        }
-        
-        // Defend function
-        function defend() {
-            if (!battleState.isBattleActive) return;
-            
-            battleState.isDefending = true;
-            addBattleMessage(`🛡️ Lucario is defending!`);
-            
-            setTimeout(() => charizardAttack(), 1000);
-        }
-        
-        // Run function
-        function run() {
-            if (!battleState.isBattleActive) return;
-            
-            addBattleMessage(`🏃 Lucario ran away! Battle ended!`);
-            battleState.isBattleActive = false;
-            resetBattle();
-        }
-        
-        // Charizard attack
-        function charizardAttack() {
-            if (!battleState.isBattleActive) return;
-            
-            const damage = Math.floor(Math.random() * 25) + 15;
-            const isCritical = Math.random() < 0.15;
-            const finalDamage = battleState.isDefending ? Math.floor(damage * 0.5) : damage;
-            
-            battleState.lucarioHP = Math.max(0, battleState.lucarioHP - finalDamage);
-            battleState.isDefending = false;
-            
-            if (isCritical) {
-                addBattleMessage(`💥 Charizard used Flamethrower! Critical hit! ${finalDamage} damage!`);
-                createEffect('flame-effect', 700, 300);
-            } else {
-                addBattleMessage(`🔥 Charizard used Flamethrower! ${finalDamage} damage!`);
-                createEffect('flame-effect', 700, 300);
-            }
-            
-            updateDisplay();
-            checkBattleEnd();
-        }
-        
         // Check battle end
         function checkBattleEnd() {
             if (battleState.lucarioHP <= 0) {
@@ -733,7 +818,8 @@
                 if (battleState.isBattleActive) {
                     createEffect('sparkle', Math.random() * 800 + 100, Math.random() * 300 + 100);
                 }
-            }, 3000);
+            }
+        }, 3000);
         });
     </script>
 </body>
