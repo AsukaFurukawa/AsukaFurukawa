@@ -46,6 +46,24 @@
   <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/greninja-animated.svg" alt="Greninja" width="48" style="margin: 0 10px;">
 </div>
 
+## 🥊 Pokémon Battle Showcase
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle.html" target="_blank">
+    <img src="https://img.shields.io/badge/🥊_BATTLE_SHOWCASE-LUCARIO_vs_CHARIZARD-red?style=for-the-badge&logo=github&logoColor=white" alt="Battle Showcase" />
+  </a>
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-battle.html" alt="Pokémon Battle Showcase" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+</div>
+
+<div align="center">
+  <p style="color: #ccc; font-size: 12px; margin-top: 10px;">
+    🎮 Interactive battle system • Click "BATTLE SHOWCASE" to play! • Choose your moves and battle!
+  </p>
+</div>
+
 <a id="trainer-card"></a>
 
 ### Trainer Card
