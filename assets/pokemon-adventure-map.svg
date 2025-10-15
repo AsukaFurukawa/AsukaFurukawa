@@ -68,9 +68,27 @@
   <path d="M200,750 L400,720 L600,750 L800,720 L1000,750 L1000,200 L800,150 L600,180 L400,150 L200,200 Z" fill="url(#landGradient)" filter="url(#shadow)"/>
   <path d="M200,750 L400,720 L600,750 L800,720 L1000,750 L1000,200 L800,150 L600,180 L400,150 L200,200 Z" fill="url(#grassPattern)"/>
   
-  <!-- Mountains -->
-  <path d="M300,200 L350,150 L400,180 L450,160 L500,200 L480,250 L400,280 L320,250 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
-  <path d="M700,180 L750,140 L800,170 L850,150 L900,180 L880,230 L800,260 L720,230 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
+  <!-- Mountains - Left Range -->
+  <g transform="translate(300, 200)">
+    <path d="M0,50 L20,20 L40,30 L60,15 L80,25 L100,50 L90,70 L70,80 L50,75 L30,70 L10,65 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
+    <path d="M10,65 L30,45 L50,55 L70,40 L90,50 L80,60 L60,65 L40,60 L20,55 Z" fill="#8B4513" opacity="0.7"/>
+    <path d="M20,55 L40,35 L60,45 L80,30 L70,40 L50,45 L30,40 Z" fill="#A0522D" opacity="0.5"/>
+  </g>
+  
+  <!-- Mountains - Right Range -->
+  <g transform="translate(700, 180)">
+    <path d="M0,50 L25,15 L50,25 L75,10 L100,20 L120,50 L110,70 L90,80 L70,75 L50,70 L30,65 L10,60 Z" fill="url(#mountainGradient)" filter="url(#shadow)"/>
+    <path d="M10,60 L35,30 L60,40 L85,25 L110,35 L100,50 L80,55 L60,50 L40,45 L20,40 Z" fill="#8B4513" opacity="0.7"/>
+    <path d="M20,40 L45,20 L70,30 L95,15 L85,25 L65,30 L45,25 L25,20 Z" fill="#A0522D" opacity="0.5"/>
+  </g>
+  
+  <!-- Mountain Peaks -->
+  <g opacity="0.8">
+    <circle cx="350" cy="170" r="3" fill="#F5F5DC"/>
+    <circle cx="750" cy="150" r="3" fill="#F5F5DC"/>
+    <circle cx="380" cy="160" r="2" fill="#F5F5DC"/>
+    <circle cx="780" cy="140" r="2" fill="#F5F5DC"/>
+  </g>
   
   <!-- Adventure Path -->
   <path d="M250,300 Q350,280 450,320 T650,300 T850,320 T1050,300" stroke="url(#pathGradient)" stroke-width="12" fill="none" filter="url(#glow)"/>
