@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Adventure Map</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            overflow-x: auto;
+            padding: 20px;
+        }
+        
+        .adventure-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .map-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .map-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px #ffd700; }
+            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px #ffd700, 0 0 30px #ffd700; }
+        }
+        
+        .adventure-map {
+            position: relative;
+            background: linear-gradient(45deg, #2c5530, #3a6b3f, #4a7c59);
+            border: 4px solid #8b4513;
+            border-radius: 10px;
+            padding: 30px;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .map-path {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            animation: pathGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pathGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+        
+        .location {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .location:hover {
+            transform: scale(1.2);
+            animation: none;
+        }
+        
+        .location-1 {
+            top: 20%;
+            left: 10%;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border-color: #ff4757;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .location-2 {
+            top: 30%;
+            left: 30%;
+            background: linear-gradient(45deg, #4ecdc4, #7dd3fc);
+            border-color: #26d0ce;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+        }
+        
+        .location-3 {
+            top: 40%;
+            left: 50%;
+            background: linear-gradient(45deg, #45b7d1, #96ceb4);
+            border-color: #2ecc71;
+            box-shadow: 0 0 20px rgba(69, 183, 209, 0.6);
+        }
+        
+        .location-4 {
+            top: 25%;
+            left: 70%;
+            background: linear-gradient(45deg, #f9ca24, #f0932b);
+            border-color: #f39c12;
+            box-shadow: 0 0 20px rgba(249, 202, 36, 0.6);
+        }
+        
+        .location-5 {
+            top: 50%;
+            left: 85%;
+            background: linear-gradient(45deg, #eb4d4b, #6c5ce7);
+            border-color: #a29bfe;
+            box-shadow: 0 0 20px rgba(235, 77, 75, 0.6);
+        }
+        
+        .pokemon-companion {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-5deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+        
+        .pikachu {
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .charmander {
+            top: 35%;
+            left: 25%;
+            animation-delay: 0.5s;
+        }
+        
+        .lucario {
+            top: 45%;
+            left: 45%;
+            animation-delay: 1s;
+        }
+        
+        .greninja {
+            top: 20%;
+            left: 75%;
+            animation-delay: 1.5s;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: floatUp 4s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+        
+        .location-info {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 12px;
+            max-width: 200px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .location:hover .location-info {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+        
+        .stats-panel {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            color: #ccc;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            border-radius: 4px;
+            animation: progressGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            margin: 5px;
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .quest-log {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #4a7c59;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .quest-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(74, 124, 89, 0.2);
+            border-radius: 5px;
+            border-left: 4px solid #4a7c59;
+        }
+        
+        .quest-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .quest-text {
+            flex: 1;
+            font-size: 10px;
+        }
+        
+        .quest-progress {
+            width: 60px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .quest-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4a7c59, #6b8e6b);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="adventure-container">
+        <div class="map-header">
+            <h1 class="map-title">🌟 PRACHI'S CODING ADVENTURE MAP 🌟</h1>
+            <p>Follow the golden path of your programming journey!</p>
+        </div>
+        
+        <div class="adventure-map">
+            <div class="map-path"></div>
+            
+            <!-- Floating Particles -->
+            <div class="floating-particles" id="particles"></div>
+            
+            <!-- Pokémon Companions -->
+            <div class="pokemon-companion pikachu">⚡</div>
+            <div class="pokemon-companion charmander">🔥</div>
+            <div class="pokemon-companion lucario">🥋</div>
+            <div class="pokemon-companion greninja">💧</div>
+            
+            <!-- Adventure Locations -->
+            <div class="location location-1">
+                🏠
+                <div class="location-info">
+                    <strong>🏠 Home Base</strong><br>
+                    Your coding sanctuary<br>
+                    <em>Where the journey begins!</em>
+                </div>
+            </div>
+            
+            <div class="location location-2">
+                🐍
+                <div class="location-info">
+                    <strong>🐍 Python Forest</strong><br>
+                    AI/ML adventures<br>
+                    <em>Where algorithms roam free!</em>
+                </div>
+            </div>
+            
+            <div class="location location-3">
+                ⚛️
+                <div class="location-info">
+                    <strong>⚛️ React Valley</strong><br>
+                    Frontend mastery<br>
+                    <em>Building digital worlds!</em>
+                </div>
+            </div>
+            
+            <div class="location location-4">
+                🚀
+                <div class="location-info">
+                    <strong>🚀 DevOps Peak</strong><br>
+                    Cloud & deployment<br>
+                    <em>Scaling to new heights!</em>
+                </div>
+            </div>
+            
+            <div class="location location-5">
+                🏆
+                <div class="location-info">
+                    <strong>🏆 Champion's Summit</strong><br>
+                    Mastery achieved<br>
+                    <em>The ultimate destination!</em>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-value" id="total-commits">143</div>
+                <div class="stat-label">Total Commits</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-value" id="repos-count">27</div>
+                <div class="stat-label">Repositories</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-value" id="languages">6</div>
+                <div class="stat-label">Languages Mastered</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-value" id="streak">3</div>
+                <div class="stat-label">Current Streak</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quest-log">
+            <h3 style="color: #4a7c59; margin-bottom: 15px;">📜 ACTIVE QUESTS</h3>
+            
+            <div class="quest-item">
+                <div class="quest-icon">🔥</div>
+                <div class="quest-text">Master Advanced AI/ML Techniques</div>
+                <div class="quest-progress">
+                    <div class="quest-progress-fill" style="width: 70%"></div>
+                </div>
+            </div>
+            
+            <div class="quest-item">
+                <div class="quest-icon">⚡</div>
+                <div class="quest-text">Build Epic Full-Stack Applications</div>
+                <div class="quest-progress">
+                    <div class="quest-progress-fill" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <div class="quest-item">
+                <div class="quest-icon">🌊</div>
+                <div class="quest-text">Deploy to Cloud Platforms</div>
+                <div class="quest-progress">
+                    <div class="quest-progress-fill" style="width: 60%"></div>
+                </div>
+            </div>
+            
+            <div class="quest-item">
+                <div class="quest-icon">🏆</div>
+                <div class="quest-text">Contribute to Open Source</div>
+                <div class="quest-progress">
+                    <div class="quest-progress-fill" style="width: 40%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Animate stats
+        function animateStats() {
+            const stats = [
+                { id: 'total-commits', target: 143 },
+                { id: 'repos-count', target: 27 },
+                { id: 'languages', target: 6 },
+                { id: 'streak', target: 3 }
+            ];
+            
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                let current = 0;
+                const increment = stat.target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= stat.target) {
+                        current = stat.target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 50);
+            });
+        }
+        
+        // Add click effects to locations
+        document.querySelectorAll('.location').forEach(location => {
+            location.addEventListener('click', function() {
+                this.style.transform = 'scale(1.3)';
+                this.style.boxShadow = '0 0 30px rgba(255, 215, 0, 1)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '';
+                }, 300);
+            });
+        });
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateStats();
+            
+            // Add some random sparkle effects
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'absolute';
+                sparkle.style.width = '6px';
+                sparkle.style.height = '6px';
+                sparkle.style.background = '#ffd700';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animation = 'floatUp 2s linear forwards';
+                sparkle.style.pointerEvents = 'none';
+                
+                document.querySelector('.adventure-map').appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

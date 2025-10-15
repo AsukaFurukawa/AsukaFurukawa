@@ -287,8 +287,16 @@
   <img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AsukaFurukawa&layout=compact&theme=tokyonight&bg_color=000000&title_color=00e6e6&text_color=c9d1d9" />
 </div>
 
+## 🗺️ Pokémon Adventure Map
+
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AsukaFurukawa&theme=tokyo-night&hide_border=true&bg_color=000000&color=70A4FC&line=00e6e6&point=ff3e3e&radius=8" />
+  <a href="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.html" target="_blank">
+    <img src="https://img.shields.io/badge/🗺️_ADVENTURE_MAP-EXPLORE_NOW-red?style=for-the-badge&logo=github&logoColor=white" alt="Adventure Map" />
+  </a>
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.html" alt="Pokémon Adventure Map" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
 </div>
 
 <a id="achievements"></a>
