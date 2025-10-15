@@ -296,7 +296,11 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.svg" alt="Pokémon Adventure Map" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+  <img src="https://raw.githubusercontent.com/AsukaFurukawa/AsukaFurukawa/main/assets/pokemon-adventure-map.svg" alt="Dynamic Pokémon Adventure Map" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);"/>
+  
+  <p style="color: #ccc; font-size: 12px; margin-top: 10px;">
+    🕐 Updates daily with real GitHub data • Last updated: <img src="https://img.shields.io/badge/Dynamic-Real--time-brightgreen?style=flat-square&logo=github" alt="Dynamic"/>
+  </p>
 </div>
 
 <a id="achievements"></a>

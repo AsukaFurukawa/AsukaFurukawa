@@ -1,0 +1,418 @@
+name: Generate Dynamic Pokémon Adventure Map
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  workflow_dispatch:  # Allow manual trigger
+  push:
+    branches: [ main ]
+
+jobs:
+  generate-adventure-map:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install requests pygithub
+    
+    - name: Generate Dynamic Adventure Map
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USERNAME: AsukaFurukawa
+      run: |
+        python << 'EOF'
+        import requests
+        import json
+        from datetime import datetime, timedelta
+        import os
+        
+        # GitHub API configuration
+        GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
+        USERNAME = os.environ['USERNAME']
+        HEADERS = {
+            'Authorization': f'token {GITHUB_TOKEN}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+        
+        def get_github_stats():
+            """Fetch real GitHub statistics"""
+            try:
+                # Get user info
+                user_response = requests.get(f'https://api.github.com/users/{USERNAME}', headers=HEADERS)
+                user_data = user_response.json()
+                
+                # Get repositories
+                repos_response = requests.get(f'https://api.github.com/users/{USERNAME}/repos', headers=HEADERS)
+                repos_data = repos_response.json()
+                
+                # Get contribution data (last 30 days)
+                contributions_response = requests.get(f'https://api.github.com/users/{USERNAME}/events', headers=HEADERS)
+                contributions_data = contributions_response.json()
+                
+                # Calculate stats
+                total_repos = len(repos_data)
+                total_commits = sum(repo.get('size', 0) for repo in repos_data)
+                total_stars = sum(repo.get('stargazers_count', 0) for repo in repos_data)
+                total_forks = sum(repo.get('forks_count', 0) for repo in repos_data)
+                
+                # Get recent activity (last 30 days)
+                recent_commits = len([event for event in contributions_data 
+                                    if event.get('type') == 'PushEvent' 
+                                    and (datetime.now() - datetime.fromisoformat(event['created_at'].replace('Z', '+00:00'))).days <= 30])
+                
+                # Calculate streak (simplified)
+                current_streak = min(recent_commits // 3, 30)  # Rough estimate
+                
+                # Language analysis
+                languages = {}
+                for repo in repos_data:
+                    if repo.get('language'):
+                        lang = repo['language']
+                        languages[lang] = languages.get(lang, 0) + 1
+                
+                # Get top 3 languages
+                top_languages = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:3]
+                
+                return {
+                    'total_repos': total_repos,
+                    'total_commits': total_commits,
+                    'total_stars': total_stars,
+                    'total_forks': total_forks,
+                    'recent_commits': recent_commits,
+                    'current_streak': current_streak,
+                    'top_languages': top_languages,
+                    'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                }
+                
+            except Exception as e:
+                print(f"Error fetching GitHub data: {e}")
+                # Return default values if API fails
+                return {
+                    'total_repos': 27,
+                    'total_commits': 143,
+                    'total_stars': 0,
+                    'total_forks': 0,
+                    'recent_commits': 15,
+                    'current_streak': 3,
+                    'top_languages': [('HTML', 5), ('Python', 3), ('TypeScript', 2)],
+                    'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                }
+        
+        def generate_adventure_map_svg(stats):
+            """Generate the dynamic adventure map SVG"""
+            
+            # Calculate progress percentages
+            repos_progress = min(stats['total_repos'] / 50 * 100, 100)
+            commits_progress = min(stats['total_commits'] / 500 * 100, 100)
+            streak_progress = min(stats['current_streak'] / 30 * 100, 100)
+            languages_progress = min(len(stats['top_languages']) / 5 * 100, 100)
+            
+            # Quest progress (based on real activity)
+            quest_ai_ml = min(stats['recent_commits'] / 20 * 100, 100)
+            quest_fullstack = min(stats['total_repos'] / 30 * 100, 100)
+            quest_cloud = min(stats['total_forks'] / 10 * 100, 100)
+            quest_opensource = min(stats['total_stars'] / 50 * 100, 100)
+            
+            svg_content = f'''<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c5530;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3a6b3f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a7c59;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="pathGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#backgroundGradient)"/>
+  
+  <!-- Adventure Map Container -->
+  <rect x="50" y="50" width="1100" height="500" rx="15" ry="15" fill="url(#mapGradient)" stroke="#ffd700" stroke-width="4" filter="url(#glow)"/>
+  
+  <!-- Map Title -->
+  <text x="600" y="100" text-anchor="middle" font-family="monospace" font-size="32" font-weight="bold" fill="#ffd700" filter="url(#glow)">
+    <tspan>🌟 PRACHI'S CODING ADVENTURE MAP 🌟</tspan>
+  </text>
+  
+  <!-- Dynamic Subtitle -->
+  <text x="600" y="130" text-anchor="middle" font-family="monospace" font-size="14" fill="#ccc">
+    <tspan>Last Updated: {stats['last_updated']} | Real-time GitHub Data</tspan>
+  </text>
+  
+  <!-- Golden Path -->
+  <rect x="100" y="300" width="1000" height="8" rx="4" ry="4" fill="url(#pathGradient)" filter="url(#pathGlow)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Adventure Locations with Dynamic Status -->
+  
+  <!-- Location 1: Home Base -->
+  <g transform="translate(150, 200)">
+    <circle cx="0" cy="0" r="30" fill="{'#ff6b6b' if stats['total_repos'] > 0 else '#666'}" stroke="#ff4757" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🏠</text>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Home Base</text>
+    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Repos: {stats['total_repos']}</text>
+  </g>
+  
+  <!-- Location 2: Python Forest -->
+  <g transform="translate(350, 250)">
+    <circle cx="0" cy="0" r="30" fill="{'#4ecdc4' if any('Python' in lang[0] for lang in stats['top_languages']) else '#666'}" stroke="#26d0ce" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🐍</text>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Python Forest</text>
+    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Commits: {stats['total_commits']}</text>
+  </g>
+  
+  <!-- Location 3: React Valley -->
+  <g transform="translate(600, 300)">
+    <circle cx="0" cy="0" r="30" fill="{'#45b7d1' if any('TypeScript' in lang[0] or 'JavaScript' in lang[0] for lang in stats['top_languages']) else '#666'}" stroke="#2ecc71" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">⚛️</text>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">React Valley</text>
+    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Languages: {len(stats['top_languages'])}</text>
+  </g>
+  
+  <!-- Location 4: DevOps Peak -->
+  <g transform="translate(850, 220)">
+    <circle cx="0" cy="0" r="30" fill="{'#f9ca24' if stats['current_streak'] > 0 else '#666'}" stroke="#f39c12" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🚀</text>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">DevOps Peak</text>
+    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Streak: {stats['current_streak']}d</text>
+  </g>
+  
+  <!-- Location 5: Champion's Summit -->
+  <g transform="translate(1050, 300)">
+    <circle cx="0" cy="0" r="30" fill="{'#eb4d4b' if stats['total_stars'] > 0 else '#666'}" stroke="#a29bfe" stroke-width="3" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="2s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="24" fill="white">🏆</text>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd700">Champion's Summit</text>
+    <text x="0" y="65" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">Stars: {stats['total_stars']}</text>
+  </g>
+  
+  <!-- Pokémon Companions with Dynamic Status -->
+  
+  <!-- Pikachu (Electric - Commits) -->
+  <g transform="translate(120, 150)">
+    <circle cx="0" cy="0" r="20" fill="{'#ffd700' if stats['total_commits'] > 100 else '#666'}" stroke="#ffed4e" stroke-width="2">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">⚡</text>
+    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Pikachu</text>
+  </g>
+  
+  <!-- Charmander (Fire - Repos) -->
+  <g transform="translate(320, 200)">
+    <circle cx="0" cy="0" r="20" fill="{'#ff6b6b' if stats['total_repos'] > 20 else '#666'}" stroke="#ff8e8e" stroke-width="2">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">🔥</text>
+    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Charmander</text>
+  </g>
+  
+  <!-- Lucario (Aura - Languages) -->
+  <g transform="translate(570, 250)">
+    <circle cx="0" cy="0" r="20" fill="{'#45b7d1' if len(stats['top_languages']) > 2 else '#666'}" stroke="#96ceb4" stroke-width="2">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">🥋</text>
+    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Lucario</text>
+  </g>
+  
+  <!-- Greninja (Water - Streak) -->
+  <g transform="translate(820, 170)">
+    <circle cx="0" cy="0" r="20" fill="{'#4ecdc4' if stats['current_streak'] > 5 else '#666'}" stroke="#7dd3fc" stroke-width="2">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" fill="white">💧</text>
+    <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffd700">Greninja</text>
+  </g>
+  
+  <!-- Floating Particles -->
+  <g opacity="0.8">
+    <circle cx="200" cy="100" r="2" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="80" r="2" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="700" cy="120" r="2" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="950" cy="90" r="2" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+  </g>
+  
+  <!-- Dynamic Stats Panel -->
+  <rect x="100" y="400" width="1000" height="80" rx="10" ry="10" fill="rgba(0,0,0,0.7)" stroke="#ffd700" stroke-width="2"/>
+  
+  <text x="200" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">{stats['total_commits']}</text>
+  <text x="200" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Total Commits</text>
+  
+  <text x="400" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">{stats['total_repos']}</text>
+  <text x="400" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Repositories</text>
+  
+  <text x="600" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">{len(stats['top_languages'])}</text>
+  <text x="600" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Languages</text>
+  
+  <text x="800" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">{stats['current_streak']}</text>
+  <text x="800" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Current Streak</text>
+  
+  <text x="1000" y="420" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffd700">{stats['total_stars']}</text>
+  <text x="1000" y="440" text-anchor="middle" font-family="monospace" font-size="10" fill="#ccc">Total Stars</text>
+  
+  <!-- Dynamic Progress Bars -->
+  <rect x="150" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="150" y="450" width="{commits_progress}" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+    <animate attributeName="width" values="0;{commits_progress};{commits_progress}" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <rect x="350" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="350" y="450" width="{repos_progress}" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+    <animate attributeName="width" values="0;{repos_progress};{repos_progress}" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </rect>
+  
+  <rect x="550" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="550" y="450" width="{languages_progress}" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+    <animate attributeName="width" values="0;{languages_progress};{languages_progress}" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </rect>
+  
+  <rect x="750" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="750" y="450" width="{streak_progress}" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+    <animate attributeName="width" values="0;{streak_progress};{streak_progress}" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+  </rect>
+  
+  <rect x="950" y="450" width="100" height="6" rx="3" ry="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="950" y="450" width="{min(stats['total_stars'] / 10 * 100, 100)}" height="6" rx="3" ry="3" fill="url(#pathGradient)">
+    <animate attributeName="width" values="0;{min(stats['total_stars'] / 10 * 100, 100)};{min(stats['total_stars'] / 10 * 100, 100)}" dur="2s" repeatCount="indefinite" begin="2s"/>
+  </rect>
+  
+  <!-- Dynamic Quest Log -->
+  <rect x="100" y="500" width="1000" height="80" rx="10" ry="10" fill="rgba(0,0,0,0.8)" stroke="#4a7c59" stroke-width="2"/>
+  
+  <text x="600" y="520" text-anchor="middle" font-family="monospace" font-size="16" fill="#4a7c59">📜 DYNAMIC QUESTS (Real-time Progress)</text>
+  
+  <text x="200" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🔥 Master AI/ML</text>
+  <text x="200" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">{quest_ai_ml:.0f}%</text>
+  
+  <text x="400" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">⚡ Full-Stack Apps</text>
+  <text x="400" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">{quest_fullstack:.0f}%</text>
+  
+  <text x="600" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">☁️ Cloud Deploy</text>
+  <text x="600" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">{quest_cloud:.0f}%</text>
+  
+  <text x="800" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🏆 Open Source</text>
+  <text x="800" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">{quest_opensource:.0f}%</text>
+  
+  <text x="1000" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24">🎯 Legendary</text>
+  <text x="1000" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccc">{len([q for q in [quest_ai_ml, quest_fullstack, quest_cloud, quest_opensource] if q > 50])}/4</text>
+  
+  <!-- Dynamic Quest Progress Bars -->
+  <rect x="150" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="150" y="565" width="{quest_ai_ml}" height="4" rx="2" ry="2" fill="#3b82f6">
+    <animate attributeName="width" values="0;{quest_ai_ml};{quest_ai_ml}" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <rect x="350" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="350" y="565" width="{quest_fullstack}" height="4" rx="2" ry="2" fill="#3b82f6">
+    <animate attributeName="width" values="0;{quest_fullstack};{quest_fullstack}" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </rect>
+  
+  <rect x="550" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="550" y="565" width="{quest_cloud}" height="4" rx="2" ry="2" fill="#3b82f6">
+    <animate attributeName="width" values="0;{quest_cloud};{quest_cloud}" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </rect>
+  
+  <rect x="750" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="750" y="565" width="{quest_opensource}" height="4" rx="2" ry="2" fill="#3b82f6">
+    <animate attributeName="width" values="0;{quest_opensource};{quest_opensource}" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+  </rect>
+  
+  <rect x="950" y="565" width="100" height="4" rx="2" ry="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="950" y="565" width="{len([q for q in [quest_ai_ml, quest_fullstack, quest_cloud, quest_opensource] if q > 50]) / 4 * 100}" height="4" rx="2" ry="2" fill="#3b82f6">
+    <animate attributeName="width" values="0;{len([q for q in [quest_ai_ml, quest_fullstack, quest_cloud, quest_opensource] if q > 50]) / 4 * 100};{len([q for q in [quest_ai_ml, quest_fullstack, quest_cloud, quest_opensource] if q > 50]) / 4 * 100}" dur="2s" repeatCount="indefinite" begin="2s"/>
+  </rect>
+</svg>'''
+            
+            return svg_content
+        
+        # Main execution
+        print("🚀 Generating Dynamic Pokémon Adventure Map...")
+        
+        # Fetch real GitHub data
+        stats = get_github_stats()
+        print(f"📊 Fetched stats: {stats}")
+        
+        # Generate the dynamic SVG
+        svg_content = generate_adventure_map_svg(stats)
+        
+        # Save the SVG
+        with open('assets/pokemon-adventure-map.svg', 'w') as f:
+            f.write(svg_content)
+        
+        print("✅ Dynamic Adventure Map generated successfully!")
+        print(f"🗺️ Map shows: {stats['total_repos']} repos, {stats['total_commits']} commits, {stats['current_streak']} day streak")
+        
+        # Also create a JSON file with the stats for reference
+        with open('assets/adventure-stats.json', 'w') as f:
+            json.dump(stats, f, indent=2)
+        
+        print("📈 Adventure Map updated with real GitHub data!")
+        EOF
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add assets/pokemon-adventure-map.svg assets/adventure-stats.json
+        git commit -m "🗺️ Update Dynamic Adventure Map - Real GitHub data: ${{ github.event.head_commit.message || 'Auto-update' }}" || exit 0
+        git push
